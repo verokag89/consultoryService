@@ -1,0 +1,33 @@
+<table class="table table-sm table-hover table-striped">
+    <caption>Lista de usuarios</caption>
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre(s)</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Puesto</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let user of userService.UserList  | paginate: {itemsPerPage: 10, currentPage: p}">
+              <td>{{user.IdUser}}</td>
+              <td>{{user.FirstName}}</td>
+              <td>{{user.LastName}} </td>
+              <td>{{user.Position}}</td>
+              <td>{{user.Date | date:'mediumDate' }} </td>
+              <td>
+                <a class="btn" (click)="showForEdit(user)">
+                  <i>Editar</i>
+                </a>
+                <a  class="btn">
+                    <i>Eliminar</i>
+                  </a>
+              </td>
+             
+            </tr>
+      </tbody>
+ 
+</table>
+<pagination-controls (pageChange)="p=$event"></pagination-controls>

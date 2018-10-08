@@ -1,0 +1,31 @@
+<div id="wrapper">
+
+  <app-menu></app-menu>
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+      <!-- Area -->
+      <div class="card mb-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a routerLink="/usuarios">Usuario</a>
+          </li>
+          <li class="breadcrumb-item active">Registro</li>
+        </ol>
+        <div style="text-align:center">
+          <h2 class="jumbotron bg-secondary text-white"> Registro de Usuarios</h2>
+        </div>
+        <div class="row">
+          <div class="class col-md 6">
+            <app-user></app-user>
+          </div>
+          <div class="class col-md 6">
+            <app-user-list></app-user-list>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

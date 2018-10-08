@@ -1,0 +1,103 @@
+<div id="wrapper">
+
+  <app-menu></app-menu>
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+      <!-- Area -->
+      <div class="card mb-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a routerLink="/pacientes">Pacientes</a>
+          </li>
+          <li class="breadcrumb-item active">Lista de paciente</li>
+        </ol>
+        <div style="text-align:center">
+          <h2 class="jumbotron bg-secondary text-white"> Registro de pacientes</h2>
+        </div>
+        <div class="row">
+
+          <div class="col-md-4">
+              <div class="text-center" style="width: 50%;height: 50%;">
+                  <img src="assets/images/imagen-pacientes.jpg" class="rounded" name="Image"  
+                      style="width: 350px;height: 300px;" >
+                </div>
+          </div>
+          <div class="col-md-8">
+
+            <form class="patient-form" #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <div>Nombre(s):</div>
+                  <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="patientService.selectedPatient.FirstName"
+                    placeholder="Nombre" required />
+                  <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">Este campo es requerido.</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <div>Apellido:</div>
+                  <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="patientService.selectedPatient.LastName" placeholder="Apellido"
+                    required />
+                  <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">Este campo es requerido.</div>
+                </div>
+
+              </div>
+              <div class="form-row">
+                  <div>Correo electronico:</div>
+                <div class="form-group col-md-12 input-group mb-3">
+       
+                  <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                  <input class="form-control" name="Email" #Email="ngModel" [(ngModel)]="patientService.selectedPatient.Email" placeholder="usuario@dominio.com"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <div>Fecha Nacimiento:</div>
+   
+                  <input class="form-control" name="BirthDate" type="date" #BirthDate="ngModel" [(ngModel)]="patientService.selectedPatient.BirthDate">
+     
+                </div>
+                <div class="form-group col-md-3">
+                  <div>Teléfono:</div>
+                  <input class="form-control" name="Phone" #Phone="ngModel" [(ngModel)]="patientService.selectedPatient.Phone">
+                  <div class="validation-error" *ngIf="Phone.invalid && Phone.touched">Este campo es requerido.</div>
+                </div>
+                <div class="form-group col-md-3">
+                  <div>Teléfono2 (Opcional):</div>
+                   <input #Phone2 class="form-control" name="Phone2"  #Phone2="ngModel" [(ngModel)]="patientService.selectedPatient.Phone2">
+               </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  Active
+                  <input #Active type="checkbox" id="Active"  name="Active"  [checked]="activePatient"  (change)="onSavePatientChanged(Active.checked)" >
+                </div>
+              </div>
+              <div class="class form-row">
+                  <div class="class form-group col-md-8">
+                    
+                    
+                    </div>
+                <div class="class form-group col-md-2">
+                  <button type="submit" class="btn btn-lg btn-block btn-info btn-sm" [disabled]="!patientForm.valid">
+                    <i class="fas fa-floppy-o"></i>Guardar</button>
+                  <i class="fas fa-save"></i>
+                </div>
+                <div class="class form-group col-md-2">
+                  <button type="button" class="btn btn-lg btn-block btn-secondary btn-sm" (click)=resetForm(patientForm)>
+                    <i class="fas fa-repeat"></i>Limpiar</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+     <app-footer></app-footer> 
+  </div>
+</div>

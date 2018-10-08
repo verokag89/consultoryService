@@ -1,0 +1,38 @@
+<table  class="table table-sm table-hover table-striped">
+  <caption>Última actualización {{today | date:'medium' }}</caption>
+  <thead>
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Apellido</th>
+    <th scope="col">Fecha Nac.</th>
+    <th scope="col">Tel</th>
+    <th scope="col">Otro Tel.</th>
+    <th scope="col">Estatus</th>
+    <th scope="col">Email</th>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of patientService.PatientList | paginate: {itemsPerPage: 10, currentPage: p} ">
+
+      <td>{{patient.IdPatient}}</td>
+      <td>{{patient.FirstName}}</td>
+      <td>{{patient.LastName}}</td>
+      <td>{{patient.BirthDate  | date:'mediumDate' }}</td>
+      <td>{{patient.Phone}}</td>
+      <td>{{patient.Phone2}}</td>
+      <td>{{patient.Active}}</td>
+      <td>{{patient.Email}}</td>
+      <td>
+        <a routerLink="/agregar-paciente" class="btn" (click)="showForEdit(patient)">
+        <i class="fa fa-pencil-square-o">Editar</i>
+        </a>
+        <a href="" class="btn">
+            <i class="fa fa-pencil-square-o">Eliminar</i>
+            </a>
+      </td>
+    </tr>
+
+  </tbody>
+
+</table>
+<pagination-controls (pageChange)="p=$event"></pagination-controls>

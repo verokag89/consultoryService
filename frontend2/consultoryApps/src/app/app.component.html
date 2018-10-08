@@ -1,0 +1,56 @@
+<!--    <app-menu></app-menu>
+<div class="container">
+    <app-users></app-users>
+</div>
+
+<div class="mat-app-background basic-container">
+    <app-menu></app-menu>
+  </div>-->
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+  <a class="navbar-brand mr-1" routerLink="/consultorio">Consultorio</a>
+
+  <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Navbar Search -->
+  <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for..." aria-label="Busqueda" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+</nav>
+
+
+<router-outlet>
+            
+</router-outlet>
+<!--
+<div id="wrapper">
+
+ <app-menu></app-menu>
+
+  <div id="content-wrapper">
+
+    <router-outlet>
+            
+    </router-outlet>
+
+  
+
+
+  </div>
+
+   
+
+
+</div>
+ </#wrapper -->
