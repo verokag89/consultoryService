@@ -1,0 +1,49 @@
+ng new angularName
+ng serve
+ng generate component users  -> ng g c users
+
+instalar bootstrap
+
+https://loiane.com/2017/08/how-to-add-bootstrap-to-an-angular-cli-project/
+https://stackoverflow.com/questions/43557321/angular-4-how-to-include-bootstrap
+
+error rxjs
+npm install --save rxjs-compat
+
+menu
+https://www.youtube.com/watch?v=-k73oWFrRoE
+
+include angular material
+https://material.angular.io/guide/getting-started
+
+errores
+https://stackoverflow.com/questions/46633867/error-angular-material-material-has-no-exported-member-mdbuttonmodule
+
+BrowserAnimationsModule
+https://github.com/telerik/kendo-angular/issues/454
+
+crear componente agregarlo a un module
+ng g c new-component --module app
+
+instalar calendario
+https://ng-bootstrap.github.io/#/components/datepicker/examples
+
+https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap
+
+https://stackoverflow.com/questions/47247853/ng-bootstrap-datepicker-not-working
+
+pagination
+https://www.youtube.com/watch?v=7sMu-qO5IN8
+
+
+
+pipes:
+
+https://medium.com/williambastidasblog/trabajando-con-pipes-en-angular-5-cec06597c451
+
+
+
+errores pipe:
+https://stackoverflow.com/questions/39007130/the-pipe-could-not-be-found-angular2-custom-pipe
+
+
