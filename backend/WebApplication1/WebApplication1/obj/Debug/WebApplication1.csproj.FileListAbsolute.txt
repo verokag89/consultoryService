@@ -42,3 +42,46 @@ d:\documents\visual studio 2015\Projects\WebApplication1\WebApplication1\bin\Sys
 d:\documents\visual studio 2015\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 d:\documents\visual studio 2015\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 d:\documents\visual studio 2015\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\ApplicationInsights.config
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\csc.exe
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\vbc.exe
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\WebApplication1.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Net.Http.Formatting.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Web.Cors.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Web.Http.Cors.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Web.Http.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Web.Http.WebHost.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.DependencyCollector.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.Web.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Net.Http.Formatting.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Web.Http.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Web.Http.Cors.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Web.Http.WebHost.xml
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb

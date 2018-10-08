@@ -108,6 +108,46 @@ namespace WebApplication1.Repository
 
         }
 
+        public static ResponseTransport<Patient> DeletePatient(SqlConnection connection, int id)
+        {
+
+            ResponseTransport<Patient> response = new ResponseTransport<Patient>();
+        
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(PatientDb.DeletePatientById, connection))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter(PatientDb.PatientId, id));
+                
+
+
+                    connection.Open();
+                    int k = cmd.ExecuteNonQuery();
+                    if (k != 0)
+                    {
+                        response.Success = true;
+                    }
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return response;
+        }
+
         public static Patient UpdatePatient(SqlConnection connection, Patient patient)
         {
             ResponseTransport<Patient> response = new ResponseTransport<Patient>();
@@ -159,11 +199,11 @@ namespace WebApplication1.Repository
             SqlDataReader rdr = null;
             try
             {
-                using (SqlCommand cmd = new SqlCommand(UserDb.GetUserById, connection))
+                using (SqlCommand cmd = new SqlCommand(PatientDb.GetPatientById, connection))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter(UserDb.UserId, id));
+                    cmd.Parameters.Add(new SqlParameter(PatientDb.PatientId, id));
                     connection.Open();
                     rdr = cmd.ExecuteReader();
                     while (rdr.Read())

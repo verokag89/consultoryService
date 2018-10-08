@@ -21,6 +21,7 @@ namespace WebApplication1.Constant
         public static string PostPatient = "usp_savePatient";
         public static string PutPatient = "usp_updatePatient";
         public static string GetPatientById = "usp_getPatientById";
+        public static string DeletePatientById = "usp_deletePatient";
 
         public static string PatientId = "@pPatientId";
         public static string FistName = "@pFirstName";
