@@ -28,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     RouterModule.forChild([
       { path: 'pacientes', component: PatientsComponent },
-      { path: 'agregar-paciente', component: PatientComponent }
+      { path: 'agregar-paciente', component: PatientComponent },
+      { path: 'editar-paciente/:id', component: PatientComponent ,data: { parent: 'pacientes' }}
     ],
 
     ),

@@ -9,7 +9,7 @@
     <th scope="col">Otro Tel.</th>
     <th scope="col">Estatus</th>
     <th scope="col">Email</th>
-
+    <th scope="col">Acción</th>
   </thead>
   <tbody>
     <tr *ngFor="let patient of patientService.PatientList | paginate: {itemsPerPage: 10, currentPage: p} ">
@@ -23,12 +23,12 @@
       <td>{{patient.Active}}</td>
       <td>{{patient.Email}}</td>
       <td>
-        <a routerLink="/agregar-paciente" class="btn" (click)="showForEdit(patient)">
+        <a routerLink="/editar-paciente" class="btn" (click)="onEdit(patient)">
         <i class="fa fa-pencil-square-o">Editar</i>
         </a>
-        <a href="" class="btn">
+        <a  (click)="onDelete(patient)" class="btn">
             <i class="fa fa-pencil-square-o">Eliminar</i>
-            </a>
+        </a>
       </td>
     </tr>
 

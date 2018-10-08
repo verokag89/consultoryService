@@ -27,6 +27,8 @@
 
             <form class="patient-form" #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
               <div class="form-row">
+                <input type="hidden" class="form-control" name="IdPatient" #IdPatient="ngModel" [(ngModel)]="patientService.selectedPatient.IdPatient">
+              
                 <div class="form-group col-md-6">
                   <div>Nombre(s):</div>
                   <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="patientService.selectedPatient.FirstName"

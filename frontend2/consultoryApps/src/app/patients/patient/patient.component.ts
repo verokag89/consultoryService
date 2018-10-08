@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../../shared/patient.service';
 import { Form } from '@angular/forms';
 import { NgForm } from '@angular/forms';
-import {NgbdDatepickerPopup} from '../../shared/components/datepicker-popup'
+import { NgbdDatepickerPopup } from '../../shared/components/datepicker-popup'
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-patient',
   templateUrl: './patient.component.html',
@@ -11,58 +13,95 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PatientComponent implements OnInit {
 
-  constructor(private patientService: PatientService, private toasterService:ToastrService) { }
-  activePatient: boolean= false;
+  PatientId: number;
+
+  constructor(
+    private patientService: PatientService,
+    private toasterService: ToastrService,
+    private aRoute: ActivatedRoute,
+    private router: Router) {
+    this.aRoute.params.subscribe(params => {
+      this.PatientId = parseInt(params.id);
+    });
+
+  }
+  activePatient: boolean = false;
 
   ngOnInit() {
     this.resetForm();
-    
+    if (this.PatientId) {
+
+      this.patientService.getPatientById(this.PatientId).then(data => {
+
+        this.onSavePatientChanged(this.patientService.selectedPatient.Active);
+      });
+    }
   }
 
-  resetForm(form? : NgForm){
+  resetForm(form?: NgForm) {
 
-    if(form != null)
+    if (form != null)
       form.reset();
 
-    this.patientService.selectedPatient ={
-      IdPatient: null,
-      FirstName: '',
-      LastName: '',
-      BirthDate: null,
-      Phone: '',
-      Phone2: '',
-      Active: false,
-      Email : ''
+      if(isNaN(this.PatientId)){
 
-    }
+        this.patientService.selectedPatient = {
+          IdPatient: null,
+          FirstName: '',
+          LastName: '',
+          BirthDate: null,
+          Phone: '',
+          Phone2: '',
+          Active: false,
+          Email: ''
+        }
+      }else {
+
+        this.patientService.selectedPatient = {
+          IdPatient: this.PatientId,
+          FirstName: '',
+          LastName: '',
+          BirthDate: null,
+          Phone: '',
+          Phone2: '',
+          Active: false,
+          Email: ''
+        }
+
+      }
+ 
 
 
   }
 
   onSubmit(form: NgForm) {
 
-    if(form.value.IdPatient= null){
+    if (isNaN(this.PatientId)) {
+      this.patientService.selectedPatient.Active = this.activePatient;
 
-      form.value.Active = this.activePatient;
-      this.patientService.postPatient(form.value).subscribe(data => {
+      this.patientService.postPatient(this.patientService.selectedPatient).subscribe(data => {
         this.resetForm(form);
         this.patientService.getPatients();
         this.toasterService.success("El paciente ha sido agregado", "Registro Pacientes");
+        this.router.navigateByUrl('/pacientes');
       });
-  
-    }else{
 
-      form.value.Active = this.activePatient;
-      this.patientService.putPatient(form.value).subscribe(data => {
+    } else {
+
+      this.patientService.selectedPatient.Active = this.activePatient;
+      form.value.IdPatient = this.patientService.selectedPatient.IdPatient;
+      this.patientService.putPatient(this.patientService.selectedPatient).subscribe(data => {
         this.resetForm(form);
         this.patientService.getPatients();
-        this.toasterService.success("El paciente ha sido agregado", "Registro Pacientes");
+        this.toasterService.success("El paciente ha sido editado", "Registro Pacientes");
+        this.router.navigateByUrl('/pacientes');
       });
+
     }
 
   }
 
-  onSavePatientChanged(value:boolean){
+  onSavePatientChanged(value: boolean) {
     this.activePatient = value;
 
   }

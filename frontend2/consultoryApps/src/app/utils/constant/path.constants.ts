@@ -1,7 +1,9 @@
 export class PathConstants {
 
+
     //url that contain our apis
     //static basePath = 'http://localhost:54289'
+    static DATE_FMT = "yyyy-MM-dd"
     static basePath= 'http://localhost:63314'
 
     /* Begin -> Home*/
@@ -24,9 +26,10 @@ export class PathConstants {
 
     /* Begin -> Patients*/
     static POST_PATIENT ="/api/Patient"
-    static PUT_PATIENT ="/api/Patient"
+    static PUT_PATIENT ="/api/Patient/"
     static GET_PATIENTS ="/api/Patient"
     static GET_PATIENT_BY_ID ="/api/Patient/"
+    static DELETE_PATIENT = "/api/Patient/"
     /* End -> Patients*/
 
 

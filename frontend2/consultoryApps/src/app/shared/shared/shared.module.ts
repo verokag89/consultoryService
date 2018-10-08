@@ -11,7 +11,7 @@ import { NgxPaginationModule, PaginationControlsDirective, PaginatePipe } from  
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import{ TruncatePipe} from '../pipes/truncate.pipe'
-
+import{ DateFormatPipe} from '../pipes/formatDate.pipe'
 @NgModule({
   imports: [
     CommonModule,
@@ -20,8 +20,9 @@ import{ TruncatePipe} from '../pipes/truncate.pipe'
     NgxPaginationModule,
     NgbModule.forRoot()
   ],
-  exports:[MenuComponent, FooterComponent, FormsModule, CommonModule,NgbdDatepickerPopup, NgxPaginationModule,TruncatePipe],
-  declarations: [ MenuComponent, FooterComponent, NgbdDatepickerPopup, TruncatePipe ],
+  exports:[MenuComponent, FooterComponent, FormsModule, CommonModule,NgbdDatepickerPopup, NgxPaginationModule,TruncatePipe, DateFormatPipe],
+  declarations: [ MenuComponent, FooterComponent, NgbdDatepickerPopup, TruncatePipe, DateFormatPipe ],
+  providers:    [ DateFormatPipe ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class SharedModule { }
