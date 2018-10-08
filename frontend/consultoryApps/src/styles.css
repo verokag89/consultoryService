@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+form.user-form{
+    background-color: #dbdbdb;
+    border-radius: 4px;
+    padding: 10px
+}
+
+div.validation-error{
+    color: red;
+    text-align: center;
+}
+
+button:hover, a bnt:hover{
+    cursor: pointer;
+}
