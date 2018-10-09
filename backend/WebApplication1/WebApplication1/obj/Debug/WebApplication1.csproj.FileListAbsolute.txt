@@ -85,3 +85,4 @@ D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bi
 D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\bin\System.Web.Http.WebHost.xml
 D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\Documents\GitHub\consultoryService\backend\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache

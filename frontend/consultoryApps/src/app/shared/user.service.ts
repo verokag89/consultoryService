@@ -13,37 +13,60 @@ export class UserService {
 
 
   selectedUser: User;
-  UserList : User[];
-  PositionList : PositionUser[];
+  UserList: User[];
+  PositionList: PositionUser[];
   SelectedPosition: Position;
 
-  constructor(private http : Http) {   }
+  constructor(private http: Http) { }
 
-  postUser(user: User){
-    let url : string = PathConstants.getWorkingPath(PathConstants.POST_USER);
+  postUser(user: User) {
+    let url: string = PathConstants.getWorkingPath(PathConstants.POST_USER);
     var body = JSON.stringify(user);
-    var headerOptions = new Headers({'Content-Type': 'applications/json'});
-    var requestOptions = new RequestOptions({method: RequestMethod.Post, headers : headerOptions});
-    return this.http.post(url,body).map(res =>res.json());
+    var headerOptions = new Headers({ 'Content-Type': 'applications/json' });
+    var requestOptions = new RequestOptions({ method: RequestMethod.Post, headers: headerOptions });
+    return this.http.post(url, body).map(res => res.json());
   }
 
-  getUsers(){
-    let url : string = PathConstants.getWorkingPath(PathConstants.GET_USER);
-   
-    this.http.get(url).map((data:Response)=>{
+  getUsers() {
+    let url: string = PathConstants.getWorkingPath(PathConstants.GET_USER);
+
+    this.http.get(url).map((data: Response) => {
       return data.json() as User[];
-    }).toPromise().then(x =>{
-      this.UserList= x;
+    }).toPromise().then(x => {
+      this.UserList = x;
     })
   }
-    getPostions(){
-      let url : string = PathConstants.getWorkingPath(PathConstants.GET_POSITIONS);
-   
-    return  this.http.get(url).map((data:Response)=>{
-        return data.json() as PositionUser[];
-      }).toPromise().then(x =>{
-        this.PositionList= x;
-      });
+
+
+
+  getUserById(userId: number) {
+    let url: string = PathConstants.getWorkingPath(PathConstants.GET_USER_BY_ID) + userId;
+
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(url)
+        .toPromise()
+        .then(
+          res => { // Success
+            this.selectedUser = res.json() as User;
+            resolve();
+          },
+          msg => { // Error
+            reject(msg);
+          }
+        );
+    });
+    return promise;
+
+  }
+
+  getPostions() {
+    let url: string = PathConstants.getWorkingPath(PathConstants.GET_POSITIONS);
+
+    return this.http.get(url).map((data: Response) => {
+      return data.json() as PositionUser[];
+    }).toPromise().then(x => {
+      this.PositionList = x;
+    });
 
     /*  return this.http.get(url)
       .toPromise()
@@ -52,4 +75,24 @@ export class UserService {
       });
 */
   }
+
+  deleteUser(user: User) {
+    let url: string = PathConstants.getWorkingPath(PathConstants.DELETE_USER) + user.IdUser;
+    let promise = new Promise((resolve, reject) => {
+      this.http.delete(url)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve();
+          },
+          msg => { // Error
+            reject(msg);
+          }
+        );
+    });
+    return promise;
+
+  }
+
+
 }

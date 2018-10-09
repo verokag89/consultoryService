@@ -16,9 +16,10 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-12">
-            <select class="form-control" name="IdPosition" #IdPosition="ngModel" [(ngModel)]="userService.selectedUser.IdPosition" placeholder="Puesto" required>
-                <option></option>
-                <option *ngFor="let j of userService.PositionList" [value]="j.IdPosition">{{ j.PositionRol }}</option>
+            <select class="form-control" name="IdPosition" #IdPosition="ngModel" [(ngModel)]="userService.selectedUser.IdPosition" 
+            (ngModelChange)='onOptionsSelected(userService.selectedUser.IdPosition)'
+            placeholder="Puesto" required>
+                <option *ngFor="let j of userService.PositionList" [value]="j.IdPosition">{{  j.PositionRol  }}</option>
             </select>
         </div>
     </div>

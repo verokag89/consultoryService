@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-form.user-form{
+form.user-form, form.consultory-form, form.patient-form {
     background-color: #dbdbdb;
     border-radius: 4px;
     padding: 10px
@@ -13,4 +13,8 @@ div.validation-error{
 
 button:hover, a bnt:hover{
     cursor: pointer;
+}
+
+.card{
+    border: none;
 }

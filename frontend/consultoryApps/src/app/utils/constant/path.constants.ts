@@ -1,9 +1,11 @@
 export class PathConstants {
 
 
+
+    static DATE_FMT = "yyyy-MM-dd"
+
     //url that contain our apis
     //static basePath = 'http://localhost:54289'
-    static DATE_FMT = "yyyy-MM-dd"
     static basePath= 'http://localhost:63314'
 
     /* Begin -> Home*/
@@ -13,8 +15,9 @@ export class PathConstants {
     /* Begin -> Users*/
     static POST_USER = "/api/User";
     static GET_USER = "/api/User"; //"/api/Users";
-    static GET_USER_BY_ID = "/api/Users/";
+    static GET_USER_BY_ID = "/api/User/";
     static PUT_USER = "/api/Users";
+    static DELETE_USER = "/api/User/"
     static GET_POSITIONS = "/api/Position";
     /* End -> Users*/
 
@@ -22,6 +25,7 @@ export class PathConstants {
     static POST_CONSULTORY = "/api/Consultory"
     static PUT_CONSULTORY = "/api/Consultory"
     static GET_CONSULTORY = "/api/Consultory"
+    static DELETE_CONSULTORY = "/api/Consultory/"
     /* End -> Consultory*/
 
     /* Begin -> Patients*/
@@ -32,6 +36,13 @@ export class PathConstants {
     static DELETE_PATIENT = "/api/Patient/"
     /* End -> Patients*/
 
+    /* Begin -> Appointment */
+    static GET_APPOINTMENT_BY_ID = "/api/Appointment/"
+    static GET_APPOINTMENTS = "/api/Appointments"
+    static PUT_APPOINMENT = "/api/Appointment"
+    static POST_APPOINMENT = "/api/Appointment"
+    static DELETE_APPOINTMENT = "/api/Appointment/"
+    /* End -> Appointment */
 
     static getWorkingPath(key: string): string {
         return this.basePath + key;

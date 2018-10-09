@@ -47,3 +47,5 @@ errores pipe:
 https://stackoverflow.com/questions/39007130/the-pipe-could-not-be-found-angular2-custom-pipe
 
 
+versionar en github
+ https://techoverflow.net/2017/08/09/how-to-solve-git-fatal-no-configured-push-destination/

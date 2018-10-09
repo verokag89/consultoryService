@@ -12,6 +12,6 @@ namespace WebApplication1.Models
         public string LastName { get; set; }
         public DateTime? Date { get; set; }
         public int? IdPosition { get; set; }
-        public string Position { get; set; }
+        public string PositionRol { get; set; }
     }
 }

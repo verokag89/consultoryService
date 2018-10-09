@@ -98,6 +98,46 @@ namespace WebApplication1.Repository
 
         }
 
+        public static ResponseTransport<Consultory> DeleteConsultory(SqlConnection connection, int id)
+        {
+
+            ResponseTransport<Consultory> response = new ResponseTransport<Consultory>();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(ConsultoryDb.DeleteConsultoryById, connection))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter(ConsultoryDb.IdConsultory, id));
+
+
+
+                    connection.Open();
+                    int k = cmd.ExecuteNonQuery();
+                    if (k != 0)
+                    {
+                        response.Success = true;
+                    }
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return response;
+        }
+
         public static ResponseTransport<Consultory> UpdateConsultory(SqlConnection connection, Consultory consultory)
         {
 

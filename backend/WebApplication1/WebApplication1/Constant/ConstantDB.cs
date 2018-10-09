@@ -39,11 +39,14 @@ namespace WebApplication1.Constant
         public static string GetConsultoryById = "usp_getConsultoryById";
         public static string SaveConsultory = "usp_saveConsultory";
         public static string UpdateConsultory = "usp_updateConsultory";
+        public static string DeleteConsultoryById = "usp_deleteConsultory";
 
         public static string IdConsultory= "@pIdConsultory";
         public static string Location ="@pLocation";
         public static string Name = "@pName";
         public static string Phone = "@pPhone";
+
+
     }
     public static class UserDb
     {
@@ -54,6 +57,7 @@ namespace WebApplication1.Constant
         public static string GetUserById = "usp_getUserById";
         public static string GetPositions = "usp_getPositions";
         public static string UpdateUser= "usp_updateUser";
+        public static string DeleteUserById = "usp_deleteUser";
 
         public static string UserId = "@pUserId";
         public static string UserName = "@pUserName";
@@ -61,6 +65,6 @@ namespace WebApplication1.Constant
         public static string PositionId = "@pPositionId";
         public static string FormatDate = "@pFormatDate";
 
-    
+
     }
 }

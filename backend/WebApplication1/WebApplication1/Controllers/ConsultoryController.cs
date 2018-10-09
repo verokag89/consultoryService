@@ -87,8 +87,23 @@ namespace WebApplication1.Controllers
         }
 
         // DELETE: api/Consultory/5
-        public void Delete(int id)
+  
+        public HttpResponseMessage Delete(int id)
         {
+            try
+            {
+                using (var connection = new SqlConnection(strcon))
+                {
+
+                    var result = ConsultoryRepository.DeleteConsultory(connection, id);
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            }
         }
     }
 }

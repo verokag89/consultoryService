@@ -11,7 +11,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   { path: '', redirectTo :'inicio', pathMatch: 'full'}, 
   { path: 'consultorio', component : ConsultoryComponent },
-  { path: 'citas', component : AppointmentsComponent },
   { path: 'inicio', component : DashboardComponent }
 ];
 
@@ -21,4 +20,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [ConsultoryComponent,DashboardComponent ,AppointmentsComponent  ]
+export const routingComponents = [ConsultoryComponent,DashboardComponent   ]

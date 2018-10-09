@@ -42,6 +42,23 @@ export class ConsultoryService {
       this.ConsultoryList= x;
     })
   }
-   
- 
+
+  deleteConsultory(consultory: Consultory) {
+    let url: string = PathConstants.getWorkingPath(PathConstants.DELETE_CONSULTORY) + consultory.IdConsultory;
+    let promise = new Promise((resolve, reject) => {
+      this.http.delete(url)
+        .toPromise()
+        .then(
+          res => { // Success
+            resolve();
+          },
+          msg => { // Error
+            reject(msg);
+          }
+        );
+    });
+    return promise;
+  }
+
+
 }

@@ -22,7 +22,8 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     RouterModule,
   RouterModule.forChild([
-        { path: 'usuarios', component : UsersComponent }
+        { path: 'usuarios', component : UsersComponent },
+        { path: 'usuarios/:id', component : UsersComponent }
 
       ],
       

@@ -5,6 +5,8 @@ import { DELEGATE_CTOR } from '@angular/core/src/reflection/reflection_capabilit
 import { ToastrService } from 'ngx-toastr';
 import { PositionUser } from '../../types/positionuser.model';
 import { User } from '../../types/user.model';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -16,15 +18,36 @@ export class UserComponent implements OnInit {
   positions: PositionUser[];
   PositionList: PositionUser[];
   selectedPosition: PositionUser;
+  PositionRol : string;
+  UserId : number; 
   constructor(private userService: UserService
     , private toasterService: ToastrService
-  ) { }
+    , private aRoute: ActivatedRoute
+  ) { 
+
+    this.aRoute.params.subscribe(params => {
+      this.UserId = parseInt(params.id);
+      if (this.UserId) {
+
+        this.userService.getUserById(this.UserId).then(data => {
+       
+        });
+      }
+    });
+
+  }
 
   ngOnInit() {
     this.resetForm();
     //this.getPositions();
     this.userService.getPostions();
-    console.log("entra:"+ this.userService.selectedUser);
+  
+
+    if (this.UserId) {
+
+      this.userService.getUserById(this.UserId).then(data => {
+      });
+    }
   }
 
   resetForm(form?: NgForm) {
@@ -45,6 +68,7 @@ export class UserComponent implements OnInit {
     this.userService.postUser(form.value).subscribe(data => {
       this.resetForm(form);
       this.toasterService.success("El usuario ha sido agregado", "Registro Usuario");
+      this.userService.getUsers();
     })
 
   }
@@ -59,6 +83,10 @@ export class UserComponent implements OnInit {
 
   }
 
+  
+  onOptionsSelected(event){
+    console.log("++"+ event);
 
+  }
 
 }

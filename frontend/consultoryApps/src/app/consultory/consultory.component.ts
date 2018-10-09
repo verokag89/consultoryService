@@ -75,5 +75,18 @@ export class ConsultoryComponent implements OnInit {
     this.titlePage =  this.consultoryService.titlePage ;
   }
 
+  onDelete( consult: Consultory){
+    this.consultoryService.deleteConsultory(consult).then(
+      data=>{
+        this.resetForm();
+        this.consultoryService.getConsultory();
+        this.toasterService.success("El consultorio ha sido eliminado", "Registro Consultorio");
+      }
+    ).catch(error=>{
+      this.toasterService.error("Error: El consultorio no pudo ser eliminado", "Registro Consultorio");
+
+    }
+    );
+  }
 
 }

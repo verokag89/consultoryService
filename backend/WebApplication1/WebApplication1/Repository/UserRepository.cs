@@ -31,7 +31,7 @@ namespace WebApplication1.Repository
                             LastName = rdr["LastName"].ToString(),
                             FirstName = rdr["FirstName"].ToString(),
                             IdPosition = Convert.ToInt32(rdr["IdPosition"].ToString() != "" ? rdr["IdPosition"]: 0),
-                            Position = rdr["Position"].ToString(),
+                            PositionRol = rdr["Position"].ToString(),
                             IdUser = Convert.ToInt32(rdr["IdUser"]),
                             Date = Convert.ToDateTime(rdr["Date"] != null ? DateTime.Today.Date : rdr["Date"]),
                         };
@@ -159,7 +159,7 @@ namespace WebApplication1.Repository
                             LastName = rdr["LastName"].ToString(),
                             FirstName = rdr["FirstName"].ToString(),
                             IdPosition = Convert.ToInt32(rdr["IdPosition"] != null ? 0 : rdr["IdPosition"]),
-                            Position = rdr["Position"].ToString(),
+                            PositionRol = rdr["Position"].ToString(),
                             IdUser = Convert.ToInt32(rdr["IdUser"]),
                             Date = Convert.ToDateTime(rdr["Date"] != null ? DateTime.Today.Date : rdr["Date"]),
                         };
@@ -183,5 +183,46 @@ namespace WebApplication1.Repository
 
             return user;
         }
+
+        public static ResponseTransport<User> DeleteUser(SqlConnection connection, int id)
+        {
+
+            ResponseTransport<User> response = new ResponseTransport<User>();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(UserDb.DeleteUserById, connection))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter(UserDb.UserId, id));
+
+
+
+                    connection.Open();
+                    int k = cmd.ExecuteNonQuery();
+                    if (k != 0)
+                    {
+                        response.Success = true;
+                    }
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return response;
+        }
+
     }
 }

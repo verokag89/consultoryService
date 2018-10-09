@@ -15,13 +15,13 @@
               <td>{{user.IdUser}}</td>
               <td>{{user.FirstName}}</td>
               <td>{{user.LastName}} </td>
-              <td>{{user.Position}}</td>
+              <td>{{user.PositionRol}}</td>
               <td>{{user.Date | date:'mediumDate' }} </td>
               <td>
-                <a class="btn" (click)="showForEdit(user)">
+                <a class="btn" (click)="onEdit(user)">
                   <i>Editar</i>
                 </a>
-                <a  class="btn">
+                <a  class="btn" (click)="onDelete(user)">
                     <i>Eliminar</i>
                   </a>
               </td>
