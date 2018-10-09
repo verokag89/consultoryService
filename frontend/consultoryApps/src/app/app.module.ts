@@ -25,6 +25,7 @@ import { SharedModule } from './shared/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { PatientsModule } from './patients/patients.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AppointmentsModule } from './appointments/appointments.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     UsersModule,
     BrowserAnimationsModule,
     SharedModule,
-    PatientsModule
+    PatientsModule,
+    AppointmentsModule
 
     //MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatSidenavModule , BrowserAnimationsModule 
   ],

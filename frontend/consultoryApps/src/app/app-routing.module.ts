@@ -5,7 +5,6 @@ import { UsersComponent } from './users/users.component';
 import { ConsultoryComponent } from './consultory/consultory.component';
 import { UserComponent } from './users/user/user.component';
 import { UserListComponent } from './users/user-list/user-list.component';
-import { AppointmentsComponent } from './appointments/appointments.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -20,4 +19,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [ConsultoryComponent,DashboardComponent   ]
+export const routingComponents = [ConsultoryComponent ,DashboardComponent   ]

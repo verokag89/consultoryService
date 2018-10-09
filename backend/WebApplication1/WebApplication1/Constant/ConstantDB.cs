@@ -33,6 +33,22 @@ namespace WebApplication1.Constant
         public static string Email = "@pEmail";
     }
 
+    public static class AppointmentDb {
+
+        public static string GetAppointment = "usp_getAllAppointment";
+        public static string PostAppointment = "usp_saveAppointment";
+        public static string PutAppointment = "usp_updateAppointmentById";
+        public static string GetAppointmentById = "usp_getAppointmentById";
+        public static string DeleteAppointmentById = "usp_deleteAppointment";
+
+        public static string AppointmentId = "@pIdAppointment";
+        public static string PatientId = "@pPatientId";
+        public static string UserId = "@pUserId";
+        public static string Comments = "@pComments";
+        public static string Status = "@pStatus";
+        public static string Date = "@pDate";
+    }
+
     public static class ConsultoryDb
     {
         public static string GetConsultory = "usp_getConsultorys";
@@ -48,6 +64,7 @@ namespace WebApplication1.Constant
 
 
     }
+
     public static class UserDb
     {
 
