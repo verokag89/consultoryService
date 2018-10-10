@@ -14,6 +14,8 @@ import { AppointmentsComponent } from './appointments.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppointmentsListComponent } from '../appointments/appointments-list/appointments-list.component';
 import { AppointmentComponent } from '../appointments/appointment/appointment.component'
+import { UserService } from '../shared/user.service';
+import { AppoinmentService } from '../shared/appoinment.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { AppointmentComponent } from '../appointments/appointment/appointment.co
 
   ],
 
-  providers: [PatientService],
+  providers: [PatientService, UserService, AppoinmentService],
   bootstrap: []
 })
 export class AppointmentsModule {

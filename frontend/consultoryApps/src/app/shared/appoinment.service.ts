@@ -9,12 +9,15 @@ import { User } from '../types/user.model';
 import { PathConstants } from '../utils/constant/path.constants';
 import { DateFormatPipe } from './pipes/formatDate.pipe';
 import { Appointment } from '../types/appointment.model';
+import { Patient } from '../types/patient.model';
 
 @Injectable()
 export class AppoinmentService {
 
   selectedAppointment: Appointment;
-  AppoinmentList: Appointment[];
+  AppointmentList: Appointment[];
+  UsersActiveList : User[];
+  PatientActiveList: Patient[];
 
   constructor(private http: Http, private format: DateFormatPipe) { }
 
@@ -74,6 +77,34 @@ export class AppoinmentService {
     return promise;
 
   }
+
+
+  getAppointments()  {
+    let url: string = PathConstants.getWorkingPath(PathConstants.GET_APPOINTMENTS);
+ 
+    this.http.get(url).map((data: Response) => {
+      return data.json() as Appointment[];
+    }).toPromise().then(x => {
+      this.AppointmentList = x;
+    })
+  }
+
+
+
+  private handleErrorObservable(error: Response | any) {  
+      return Observable.throw(error.message || error);
+  }
+  
+  private handleErrorPromise(error: Response | any) {
+      return Promise.reject(error.message || error);
+  }
+  
+  private extractData(res: Response) {
+    let body = res.json();
+    this.AppointmentList= body as Appointment[];
+    return body || {};
+  }
+
 
   
 }

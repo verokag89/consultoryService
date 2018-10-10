@@ -14,6 +14,7 @@ export class UserService {
 
   selectedUser: User;
   UserList: User[];
+  UserDrList: User[];
   PositionList: PositionUser[];
   SelectedPosition: Position;
 
@@ -37,6 +38,17 @@ export class UserService {
     })
   }
 
+  getUserDoctors() :  User[]{
+    let url: string = PathConstants.getWorkingPath(PathConstants.GET_USER);
+
+    this.http.get(url).map((data: Response) => {
+      return data.json() as User[];
+    }).toPromise().then(x => {
+      this.UserDrList = x.filter(data=> data.IdPosition== 1);
+    })
+
+    return this.UserDrList ;
+  }
 
 
   getUserById(userId: number) {

@@ -1,38 +1,116 @@
-<table  class="table table-sm table-hover table-striped">
-  <caption>Última actualización {{today | date:'medium' }}</caption>
-  <thead>
-    <th scope="col">#</th>
-    <th scope="col">Nombre</th>
-    <th scope="col">Apellido</th>
-    <th scope="col">Fecha Nac.</th>
-    <th scope="col">Tel</th>
-    <th scope="col">Otro Tel.</th>
-    <th scope="col">Estatus</th>
-    <th scope="col">Email</th>
-    <th scope="col">Acción</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let patient of patientService.PatientList | paginate: {itemsPerPage: 10, currentPage: p} ">
+<div id="wrapper">
 
-      <td>{{patient.IdPatient}}</td>
-      <td>{{patient.FirstName}}</td>
-      <td>{{patient.LastName}}</td>
-      <td>{{patient.BirthDate  | date:'mediumDate' }}</td>
-      <td>{{patient.Phone}}</td>
-      <td>{{patient.Phone2}}</td>
-      <td>{{patient.Active}}</td>
-      <td>{{patient.Email}}</td>
-      <td>
-        <a routerLink="/editar-paciente" class="btn" (click)="onEdit(patient)">
-        <i class="fa fa-pencil-square-o">Editar</i>
-        </a>
-        <a  (click)="onDelete(patient)" class="btn">
-            <i class="fa fa-pencil-square-o">Eliminar</i>
-        </a>
-      </td>
-    </tr>
+  <app-menu></app-menu>
+  <div id="content-wrapper">
 
-  </tbody>
+    <div class="container-fluid">
+      <!-- Area -->
+      <div class="card mb-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a routerLink="/pacientes">Citas</a>
+          </li>
+          <li class="breadcrumb-item active">Lista de citas</li>
+        </ol>
+        <div style="text-align:center">
+          <h2 class="jumbotron bg-secondary text-white"> Registro de citas</h2>
+        </div>
+        <div class="row">
 
-</table>
-<pagination-controls (pageChange)="p=$event"></pagination-controls>
+          <div class="col-md-4">
+            <div class="text-center" style="width: 50%;height: 50%;">
+              <img src="assets/images/citas-medicas.jpg" class="rounded" name="Image" style="width: 350px;height: 300px;">
+            </div>
+          </div>
+          <div class="col-md-8">
+
+            <form class="appointment-form" #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm)">
+              <div class="form-row">
+                <input type="hidden" class="form-control" name="IdAppointment" #IdAppointment="ngModel" [(ngModel)]="appointmentService.selectedAppointment.IdAppointment">
+
+                <div class="form-group col-md-3">
+                  <div>Paciente:</div>
+                  <select class="form-control" name="IdPatient" #IdPatient="ngModel" [(ngModel)]="appointmentService.selectedAppointment.IdPatient"
+                    (ngModelChange)='onOptionsSelected(appointmentService.selectedAppointment.IdPatient)' placeholder="Paciente"
+                    required>
+                    <option *ngFor="let j of appointmentService.PatientList" [value]="j.IdPatient">{{ j.IdPatient }}</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <div>Nombre:</div>
+                  <input class="form-control" name="PatientName" #PatientName="ngModel" [(ngModel)]="appointmentService.selectedAppointment.PatientName"
+                    placeholder="Paciente" required />
+                  <div class="validation-error" *ngIf="PatientName.invalid && PatientName.touched">Este campo es requerido.</div>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <div>Tel:</div>
+                  <input class="form-control" name="PatientPhone" #PatientPhone="ngModel" [(ngModel)]="appointmentService.selectedAppointment.PatientPhone"
+                    placeholder="Telefono" required />
+                  <div class="validation-error" *ngIf="PatientPhone.invalid && PatientPhone.touched">Este campo es requerido.</div>
+                </div>
+
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <div>Dr:</div>
+                  <select class="form-control" name="IdUser" #IdPatient="ngModel" [(ngModel)]="appointmentService.selectedAppointment.IdUser"
+                    (ngModelChange)='onOptionsSelected(appointmentService.selectedAppointment.IdUser)' placeholder="Paciente"
+                    required>
+                    <option *ngFor="let j of appointmentService.UserList" [value]="j.IdUser">{{ j.IdUser }}</option>
+                  </select>
+
+                </div>
+
+
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  Fecha
+                  <input class="form-control" name="Date" type="date" #Date="ngModel" [(ngModel)]="appointmentService.selectedAppointment.Date">
+                </div>
+                <div class="form-group col-md-6">
+                  Hora
+                  <input class="form-control" name="Time" type="time" #Time="ngModel" [(ngModel)]="appointmentService.selectedAppointment.Time">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  Estatus
+                  <div class="radio">
+                    <label>
+                        <input type="radio" name="Status" value="0"  [(ngModel)]="appointmentService.selectedAppointment.Status">
+                        Cancelada
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="Status" value="1"   [(ngModel)]="appointmentService.selectedAppointment.Status">
+                        Activa
+                    </label>
+                </div>
+                </div>
+              </div>
+              <div class="class form-row">
+                <div class="class form-group col-md-8">
+                </div>
+                <div class="class form-group col-md-2">
+                  <button type="submit" class="btn btn-lg btn-block btn-info btn-sm" [disabled]="!appointmentForm.valid">
+                    <i class="fas fa-floppy-o"></i>Guardar</button>
+                  <i class="fas fa-save"></i>
+                </div>
+                <div class="class form-group col-md-2">
+                  <button type="button" class="btn btn-lg btn-block btn-secondary btn-sm" (click)=resetForm(appointmentForm)>
+                    <i class="fas fa-repeat"></i>Limpiar</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

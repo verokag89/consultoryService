@@ -14,6 +14,7 @@ export class PatientService {
 
   selectedPatient: Patient;
   PatientList: Patient[];
+  PatientActiveList: Patient[];
   UserList: User[];
 
   constructor(private http: Http, private format: DateFormatPipe) { }
@@ -63,6 +64,18 @@ export class PatientService {
       this.PatientList = x;
     })
   }
+
+  getActivePatients() : Patient[]{
+    let url: string = PathConstants.getWorkingPath(PathConstants.GET_PATIENTS);
+
+    this.http.get(url).map((data: Response) => {
+      return data.json() as Patient[];
+    }).toPromise().then(x => {
+      this.PatientActiveList = x.filter(data=> data.Active= true);
+    })
+    return this.PatientActiveList;
+  }
+
 
   getPatientById(patientId: number) {
     let url: string = PathConstants.getWorkingPath(PathConstants.GET_PATIENT_BY_ID) + patientId;

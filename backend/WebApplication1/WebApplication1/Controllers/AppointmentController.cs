@@ -23,8 +23,8 @@ namespace WebApplication1.Controllers
                 var result = AppoinmentRepository.GetAppointments(connection);
                 return Request.CreateResponse(result);
             }
-
         }
+
         // GET: api/Appointment/5
         public HttpResponseMessage Get(int id)
         {
@@ -32,9 +32,9 @@ namespace WebApplication1.Controllers
             {
                 using (var connection = new SqlConnection(strcon))
                 {
-                    var patient = new Patient();
-                    patient = AppoinmentRepository.GetAppointmentById(connection, id);
-                    return Request.CreateResponse(HttpStatusCode.OK, patient);
+                    var cita = new Appointment();
+                    cita = AppoinmentRepository.GetAppointmentById(connection, id);
+                    return Request.CreateResponse(HttpStatusCode.OK, cita);
                 }
             }
             catch (Exception e)
@@ -45,14 +45,14 @@ namespace WebApplication1.Controllers
         }
 
         // POST: api/Appointment
-        public HttpResponseMessage Post([FromBody]Patient patient)
+        public HttpResponseMessage Post([FromBody]Appointment appoint)
         {
             try
             {
                 using (var connection = new SqlConnection(strcon))
                 {
 
-                    var result = AppoinmentRepository.SaveAppointment(connection, patient);
+                    var result = AppoinmentRepository.SaveAppointment(connection, appoint);
                     return Request.CreateResponse(HttpStatusCode.OK, result);
                 }
             }
@@ -64,14 +64,14 @@ namespace WebApplication1.Controllers
         }
 
         // PUT: api/Appointment/5
-        public HttpResponseMessage Put(int id, [FromBody]Patient patient)
+        public HttpResponseMessage Put(int id, [FromBody]Appointment appoint)
         {
             try
             {
                 using (var connection = new SqlConnection(strcon))
                 {
 
-                    var result = AppoinmentRepository.UpdateAppointment(connection, patient);
+                    var result = AppoinmentRepository.UpdateAppointment(connection, appoint);
                     return Request.CreateResponse(HttpStatusCode.OK, result);
                 }
             }
@@ -81,6 +81,7 @@ namespace WebApplication1.Controllers
 
             }
         }
+
         // DELETE: api/Appointment/5
         public HttpResponseMessage Delete(int id)
         {

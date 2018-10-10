@@ -13,6 +13,11 @@ namespace WebApplication1.Models
         public DateTime? Date { get; set; }
         public string Status { get; set; }
         public string Comments { get; set; }
- 
+        public string PatientName { get; set; }
+        public string PatientPhone{ get; set; }
+        public string UserName { get; set; }
+
     }
+
 }
+

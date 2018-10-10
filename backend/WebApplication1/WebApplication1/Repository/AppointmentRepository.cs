@@ -31,6 +31,9 @@ namespace WebApplication1.Repository
                         {
                             Status = rdr["Status"].ToString(),
                             Comments = rdr["Comments"].ToString(),
+                            PatientName = rdr["PatientName"].ToString(),
+                            PatientPhone = rdr["PatientPhone"].ToString(),
+                            UserName = rdr["UserName"].ToString(),
                             IdAppointment = Convert.ToInt32(rdr["IdAppointment"].ToString() != "" ? rdr["IdAppointment"] : 0),
                             IdUser = Convert.ToInt32(rdr["IdUser"].ToString() != "" ? rdr["IdUser"] : 0),
                             IdPatient = Convert.ToInt32(rdr["IdPatient"].ToString() != "" ? rdr["IdPatient"] : 0),
@@ -75,9 +78,7 @@ namespace WebApplication1.Repository
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.Comments, appoint.Comments));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.Status, appoint.Status));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.Date, appoint.Date));
-  
-
-
+ 
                     connection.Open();
                     int k = cmd.ExecuteNonQuery();
                     if (k != 0)
@@ -188,7 +189,7 @@ namespace WebApplication1.Repository
 
         public static Appointment GetAppointmentById(SqlConnection connection, int id)
         {
-            Appointment patient = new Appointment();
+            Appointment appoint = new Appointment();
             SqlDataReader rdr = null;
             try
             {
@@ -201,10 +202,13 @@ namespace WebApplication1.Repository
                     rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
-                        patient = new Appointment()
+                        appoint = new Appointment()
                         {
                             Status = rdr["Status"].ToString(),
                             Comments = rdr["Comments"].ToString(),
+                            PatientName = rdr["PatientName"].ToString(),
+                            PatientPhone = rdr["PatientPhone"].ToString(),
+                            UserName = rdr["UserName"].ToString(),
                             IdAppointment = Convert.ToInt32(rdr["IdAppointment"].ToString() != "" ? rdr["IdAppointment"] : 0),
                             IdUser = Convert.ToInt32(rdr["IdUser"].ToString() != "" ? rdr["IdUser"] : 0),
                             IdPatient = Convert.ToInt32(rdr["IdPatient"].ToString() != "" ? rdr["IdPatient"] : 0),
@@ -228,7 +232,7 @@ namespace WebApplication1.Repository
                 connection.Close();
             }
 
-            return patient;
+            return appoint;
         }
 
     }

@@ -127,6 +127,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Constant\ConstantDB.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ConsultoryController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
@@ -137,6 +138,7 @@
     </Compile>
     <Compile Include="Models\Consultory.cs" />
     <Compile Include="Models\Dashboard.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\ResponseTransport.cs" />
@@ -144,6 +146,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ConsultoryRepository.cs" />
     <Compile Include="Repository\DashboardRepository.cs" />
+    <Compile Include="Repository\AppointmentRepository.cs" />
     <Compile Include="Repository\PatientRepository.cs" />
     <Compile Include="Repository\PositionRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />

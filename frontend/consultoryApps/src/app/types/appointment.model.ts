@@ -5,4 +5,7 @@ export class Appointment {
     Comments: string;
     DateTime? :Date;
     Status: string;
+    PatientName : string;
+    PatientPhone : string;
+    UserName : string;
 }
