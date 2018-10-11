@@ -8,6 +8,7 @@
           <th scope="col">Puesto</th>
           <th scope="col">Fecha</th>
           <th scope="col">Acción</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -18,12 +19,16 @@
               <td>{{user.PositionRol}}</td>
               <td>{{user.Date | date:'mediumDate' }} </td>
               <td>
-                <a class="btn" (click)="onEdit(user)">
+                  <button type="button" class="btn btn-secondary btn-sm" (click)="onEdit(user)">Editar</button>
+                <!-- <a class="btn" (click)="onEdit(user)">
                   <i>Editar</i>
-                </a>
-                <a  class="btn" (click)="onDelete(user)">
+                </a> -->
+                <!-- <a  class="btn" (click)="onDelete(user)">
                     <i>Eliminar</i>
-                  </a>
+                  </a> -->
+              </td>
+              <td>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(user)">Eliminar</button>
               </td>
              
             </tr>

@@ -19,7 +19,6 @@ import { AppoinmentService } from '../shared/appoinment.service';
 
 @NgModule({
   declarations: [
-    AppointmentsComponent,
     AppointmentsListComponent,
     AppointmentComponent
   ],
@@ -30,7 +29,7 @@ import { AppoinmentService } from '../shared/appoinment.service';
     FormsModule,
     SharedModule,
     RouterModule.forChild([
-      { path: 'citas', component: AppointmentsListComponent },
+      { path: 'lista-citas', component: AppointmentsListComponent },
       { path: 'agregar-cita', component: AppointmentComponent }
     ],
 

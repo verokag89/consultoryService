@@ -8,10 +8,12 @@ import { AppoinmentService } from '../shared/appoinment.service';
   providers: [AppoinmentService]
 })
 export class AppointmentsComponent implements OnInit {
-
-  constructor() { }
-
+  constructor(private appointmentService: AppoinmentService) { }
   ngOnInit() {
+    this.getAllAppointment();
   }
 
+  getAllAppointment(){
+    this.appointmentService.getAppointments();
+  }
 }

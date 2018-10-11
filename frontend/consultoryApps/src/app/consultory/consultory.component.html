@@ -64,6 +64,7 @@
                   <th scope="col">Ubicacion</th>
                   <th scope="col">Telefono</th>
                   <th scope="col">Acción</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -73,13 +74,19 @@
                   <td>{{consultory.Location}} </td>
                   <td>{{consultory.Phone}}</td>
                   <td>
-                      <a  class="btn breadcrumb-item" (click)="showForEdit(consultory)">
+                      <button type="button" class="btn btn-secondary btn-sm" (click)="showForEdit(consultory)">Editar</button>
+                     
+                      <!-- <a  class="btn breadcrumb-item" (click)="showForEdit(consultory)">
                           <i class="fa fa-pencil-square-o"></i>Editar
                          
-                          </a>
-                          <a class="btn breadcrumb-item" (click)="onDelete(consultory)">
+                          </a> -->
+                          <!-- <a class="btn breadcrumb-item" (click)="onDelete(consultory)">
                               <i class="fa fa-pencil-square-o"></i>Eliminar
-                          </a>
+                          </a> -->
+                  </td>
+                  <td>
+                      <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(consultory)">Eliminar</button>
+ 
                   </td>
                   
                 </tr>

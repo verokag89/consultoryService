@@ -1,3 +1,41 @@
-<p>
-  appointments works!
-</p>
+<table  class="table table-sm table-hover table-striped">
+  <caption>Última actualización {{today | date:'medium' }}</caption>
+  <thead>
+    <th scope="col">#</th>
+    <th scope="col">Fecha</th>
+    <th scope="col">Nombre Paciente</th>
+    <th scope="col">Tel</th>
+    <th scope="col">Dr</th>
+    <th scope="col">Estatus</th>
+    <th scope="col">Acción</th>
+    <th scope="col"></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of appointmentService.AppointmentList | paginate: {itemsPerPage: 10, currentPage: p} ">
+
+      <td>{{appointment.IdAppointment}}</td>
+      <td>{{appointment.Date  | date:'medium' }}</td>
+      <td>{{appointment.PatientName}}</td>
+      <td>{{appointment.PatientPhone}}</td>
+      <td>{{appointment.UserName}}</td>
+      <td>{{appointment.Status}}</td>
+      <td>
+        <!-- <a routerLink="/editar-cita" class="btn" (click)="onEdit(appointment)">
+        <i class="fa fa-pencil-square-o">Editar</i>
+        </a>
+        <a  (click)="onDelete(appointment)" class="btn">
+            <i class="fa fa-pencil-square-o">Eliminar</i>
+        </a> -->
+        <button type="button" class="btn btn-secondary btn-sm" routerLink="/editar-cita" >Editar</button>
+   
+      </td>
+      <td>
+          <button type="button" class="btn btn-danger btn-sm"  (click)="onDelete(appointment)">Eliminar</button>
+   
+      </td>
+    </tr>
+
+  </tbody>
+
+</table>
+<pagination-controls (pageChange)="p=$event"></pagination-controls>

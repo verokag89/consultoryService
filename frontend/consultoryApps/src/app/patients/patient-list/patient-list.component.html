@@ -10,6 +10,7 @@
     <th scope="col">Estatus</th>
     <th scope="col">Email</th>
     <th scope="col">Acción</th>
+    <th scope="col"></th>
   </thead>
   <tbody>
     <tr *ngFor="let patient of patientService.PatientList | paginate: {itemsPerPage: 10, currentPage: p} ">
@@ -23,12 +24,18 @@
       <td>{{patient.Active}}</td>
       <td>{{patient.Email}}</td>
       <td>
-        <a routerLink="/editar-paciente" class="btn" (click)="onEdit(patient)">
+        <!-- <a routerLink="/editar-paciente" class="btn" (click)="onEdit(patient)">
         <i class="fa fa-pencil-square-o">Editar</i>
         </a>
         <a  (click)="onDelete(patient)" class="btn">
             <i class="fa fa-pencil-square-o">Eliminar</i>
-        </a>
+        </a> -->
+        <button type="button" class="btn btn-warning" (click)="onEdit(patient)">Editar</button>
+          
+      </td>
+      <td>
+          <button type="button" class="btn btn-danger" (click)="onDelete(patient)">Eliminar</button>
+          
       </td>
     </tr>
 

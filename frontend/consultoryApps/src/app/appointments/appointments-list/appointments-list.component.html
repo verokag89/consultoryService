@@ -8,6 +8,7 @@
     <th scope="col">Dr</th>
     <th scope="col">Estatus</th>
     <th scope="col">Acción</th>
+    <th scope="col"></th>
   </thead>
   <tbody>
     <tr *ngFor="let appointment of appointmentService.AppointmentList | paginate: {itemsPerPage: 10, currentPage: p} ">
@@ -19,12 +20,17 @@
       <td>{{appointment.UserName}}</td>
       <td>{{appointment.Status}}</td>
       <td>
-        <a routerLink="/editar-cita" class="btn" (click)="onEdit(appointment)">
-        <i class="fa fa-pencil-square-o">Editar</i>
-        </a>
-        <a  (click)="onDelete(appointment)" class="btn">
+          <button type="button" class="btn btn-secondary" routerLink="/editar-cita" >Editar</button>
+   
+        <!-- <a routerLink="/editar-cita" class="btn" (click)="onEdit(appointment)">
+       
+          </a>
+        <a  (click)="onDelete(appointment)" class="btn btn-danger">
             <i class="fa fa-pencil-square-o">Eliminar</i>
-        </a>
+        </a> -->
+      </td>
+      <td>
+          <button type="button" class="btn btn-danger" (click)="onDelete(appointment)" >Eliminar</button>
       </td>
     </tr>
 
