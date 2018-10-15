@@ -49,3 +49,36 @@ https://stackoverflow.com/questions/39007130/the-pipe-could-not-be-found-angular
 
 versionar en github
  https://techoverflow.net/2017/08/09/how-to-solve-git-fatal-no-configured-push-destination/
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ejemplo de preguntas de entrevista
+¿Qué es una promesa en Javascript?
+	Permite que se realicen en operaciones asicronas.
+ejemplo: puede continuar con la ejecuciones del programa si la funcion de llamada devolvio un objeto de promesa.
+
+
+¿Cómo crear y devolver una promesa? ¿Explicar con un ejemplo de código?
+
+
+¿Cómo se procesa un objeto de promesa devuelto? Mostrar con un ejemplo de código?
+
+¿Explicar Http Obtener implementación de API con Promesa con un ejemplo de código?
+
+¿Explicar HttpClient obtener implementación de API con Promesa con un ejemplo de código?
+
+¿Explica la diferencia entre las implementaciones de Promise para las API Http Get y HttpClient Get?

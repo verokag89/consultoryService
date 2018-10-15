@@ -19,8 +19,8 @@
               <div class="class form-group col-md-10">
               </div>
               <div class="class form-group col-md-2">
-                   <button type="button" class="btn btn-primary btn-sm" routerLink='/agregar-cita'>
-                      <span style="font-weight: bolder;">+</span> Agregar cita
+                   <button type="button" class="btn btn-primary " style="width:100%" routerLink='/agregar-cita'>
+                    <i class="far fa-calendar-plus">&nbsp;</i>  Agregar cita
                     </button>
   
               </div>
@@ -52,11 +52,11 @@
                         <td>{{appointment.Status}}</td>
                         <td>
                        
-                          <button type="button" class="btn btn-secondary btn-sm" routerLink="/editar-cita" >Editar</button>
+                          <button type="button" class="btn btn-secondary btn-sm" routerLink="/editar-cita" ><i class="fa fa-pencil-square-o"></i></button>
                      
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger btn-sm"  (click)="onDelete(appointment)">Eliminar</button>
+                            <button type="button" class="btn btn-danger btn-sm"  (click)="onDelete(appointment)"><i class="far fa-trash-alt"></i></button>
                      
                         </td>
                       </tr>
