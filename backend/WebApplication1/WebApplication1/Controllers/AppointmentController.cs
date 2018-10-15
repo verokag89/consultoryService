@@ -25,6 +25,17 @@ namespace WebApplication1.Controllers
             }
         }
 
+        // GET: api/Appointment
+        public HttpResponseMessage Get(string idCurrent,string isCurrent)
+        {
+            using (var connection = new SqlConnection(strcon))
+            {
+                var result = AppoinmentRepository.GetAppointmentsCurrent(connection);
+                return Request.CreateResponse(result);
+            }
+        }
+
+
         // GET: api/Appointment/5
         public HttpResponseMessage Get(int id)
         {

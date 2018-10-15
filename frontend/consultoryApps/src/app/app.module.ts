@@ -26,11 +26,13 @@ import { RouterModule } from '@angular/router';
 import { PatientsModule } from './patients/patients.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppointmentsModule } from './appointments/appointments.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents
+    
   ],
 
   imports: [
@@ -44,7 +46,8 @@ import { AppointmentsModule } from './appointments/appointments.module';
     BrowserAnimationsModule,
     SharedModule,
     PatientsModule,
-    AppointmentsModule
+    AppointmentsModule,
+    NgbModule
 
     //MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatSidenavModule , BrowserAnimationsModule 
   ],

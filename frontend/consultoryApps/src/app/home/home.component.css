@@ -1,6 +1,4 @@
-
-
-  /*!
+/*!
  * Start Bootstrap - SB Admin v5.0.2 (https://startbootstrap.com/template-overviews/sb-admin)
  * Copyright 2013-2018 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
@@ -40,6 +38,7 @@
   @media (min-width: 768px) {
     body.fixed-nav #content-wrapper {
       padding-left: 225px;
+      height: 100%;
     }
     body.fixed-nav.sidebar-toggled #content-wrapper {
       padding-left: 90px;
@@ -186,6 +185,7 @@
   @media (min-width: 768px) {
     .sidebar {
       width: 225px !important;
+      height: 100%;
     }
     .sidebar .nav-item .nav-link {
       display: block;
@@ -343,35 +343,4 @@
     color: #777;
   }
   
-  footer.sticky-footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: calc(100% - 90px);
-    height: 80px;
-    background-color: #e9ecef;
-  }
   
-  footer.sticky-footer .copyright {
-    line-height: 1;
-    font-size: 0.8rem;
-  }
-  
-  @media (min-width: 768px) {
-    footer.sticky-footer {
-      width: calc(100% - 225px);
-    }
-  }
-  
-  body.sidebar-toggled footer.sticky-footer {
-    width: 100%;
-  }
-  
-  @media (min-width: 768px) {
-    body.sidebar-toggled footer.sticky-footer {
-      width: calc(100% - 90px);
-    }
-  }

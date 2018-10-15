@@ -14,6 +14,6 @@ export class AppointmentsComponent implements OnInit {
   }
 
   getAllAppointment(){
-    this.appointmentService.getAppointments();
+    this.appointmentService.getAppointmentsCurrent();
   }
 }

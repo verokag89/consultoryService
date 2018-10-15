@@ -8,12 +8,15 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AppoinmentService } from './shared/appoinment.service';
+import { HomeComponent } from './home/home.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo :'inicio', pathMatch: 'full'}, 
   { path: 'consultorio', component : ConsultoryComponent },
   { path: 'inicio', component : DashboardComponent },
-  { path: 'citas', component: AppointmentsComponent}
+  { path: 'citas', component: AppointmentsComponent},
+  { path: 'home', component: HomeComponent}
 ];
 
 @NgModule({
@@ -22,4 +25,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [ConsultoryComponent ,DashboardComponent , AppointmentsComponent  ]
+export const routingComponents = [ConsultoryComponent ,DashboardComponent , AppointmentsComponent, HomeComponent  ]

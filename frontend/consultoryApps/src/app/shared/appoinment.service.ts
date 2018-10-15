@@ -18,6 +18,7 @@ export class AppoinmentService {
   AppointmentList: Appointment[];
   UsersActiveList : User[];
   PatientActiveList: Patient[];
+  AppointmentListCurrent: Appointment[];
 
   constructor(private http: Http, private format: DateFormatPipe) { }
 
@@ -89,7 +90,15 @@ export class AppoinmentService {
     })
   }
 
-
+  getAppointmentsCurrent()  {
+    let url: string = PathConstants.getWorkingPath(PathConstants.GET_APPOINTMENTS_CURRENT) + 'current';
+ 
+    this.http.get(url).map((data: Response) => {
+      return data.json() as Appointment[];
+    }).toPromise().then(x => {
+      this.AppointmentListCurrent = x;
+    })
+  }
 
   private handleErrorObservable(error: Response | any) {  
       return Observable.throw(error.message || error);

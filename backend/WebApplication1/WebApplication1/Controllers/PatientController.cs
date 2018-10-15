@@ -25,6 +25,7 @@ namespace WebApplication1.Controllers
             }
 
         }
+
         // GET: api/Patient/5
         public HttpResponseMessage Get(int id)
         {

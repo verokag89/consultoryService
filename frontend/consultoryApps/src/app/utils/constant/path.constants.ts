@@ -39,6 +39,7 @@ export class PathConstants {
     /* Begin -> Appointment */
     static GET_APPOINTMENT_BY_ID = "/api/Appointment/"
     static GET_APPOINTMENTS = "/api/Appointment"
+    static GET_APPOINTMENTS_CURRENT = "/api/Appointment/1/"
     static PUT_APPOINMENT = "/api/Appointment"
     static POST_APPOINMENT = "/api/Appointment"
     static DELETE_APPOINTMENT = "/api/Appointment/"

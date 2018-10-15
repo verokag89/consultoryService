@@ -61,6 +61,55 @@ namespace WebApplication1.Repository
             return appointment;
         }
 
+        public static List<Appointment> GetAppointmentsCurrent(SqlConnection connection)
+        {
+
+            List<Appointment> appointment = new List<Appointment>();
+            SqlDataReader rdr = null;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(AppointmentDb.GetAppointmentCurrent, connection))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        Appointment patient = new Appointment()
+                        {
+                            Status = rdr["Status"].ToString(),
+                            Comments = rdr["Comments"].ToString(),
+                            PatientName = rdr["PatientName"].ToString(),
+                            PatientPhone = rdr["PatientPhone"].ToString(),
+                            UserName = rdr["UserName"].ToString(),
+                            IdAppointment = Convert.ToInt32(rdr["IdAppointment"].ToString() != "" ? rdr["IdAppointment"] : 0),
+                            IdUser = Convert.ToInt32(rdr["IdUser"].ToString() != "" ? rdr["IdUser"] : 0),
+                            IdPatient = Convert.ToInt32(rdr["IdPatient"].ToString() != "" ? rdr["IdPatient"] : 0),
+                            Date = Convert.ToDateTime(rdr["Date"] != null ? rdr["Date"] : DateTime.Today.Date)
+                        };
+                        appointment.Add(patient);
+                    }
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return appointment;
+        }
+
         public static ResponseTransport<Appointment> SaveAppointment(SqlConnection connection, Appointment appoint)
         {
 

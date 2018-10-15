@@ -1,40 +1,76 @@
-<table  class="table table-sm table-hover table-striped">
-  <caption>Última actualización {{today | date:'medium' }}</caption>
-  <thead>
-    <th scope="col">#</th>
-    <th scope="col">Fecha</th>
-    <th scope="col">Nombre Paciente</th>
-    <th scope="col">Tel</th>
-    <th scope="col">Dr</th>
-    <th scope="col">Estatus</th>
-    <th scope="col">Acción</th>
-    <th scope="col"></th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let appointment of appointmentService.AppointmentList | paginate: {itemsPerPage: 10, currentPage: p} ">
+<div id="wrapper">
 
-      <td>{{appointment.IdAppointment}}</td>
-      <td>{{appointment.Date  | date:'medium' }}</td>
-      <td>{{appointment.PatientName}}</td>
-      <td>{{appointment.PatientPhone}}</td>
-      <td>{{appointment.UserName}}</td>
-      <td>{{appointment.Status}}</td>
-      <td>
-          <button type="button" class="btn btn-secondary" routerLink="/editar-cita" >Editar</button>
-   
-        <!-- <a routerLink="/editar-cita" class="btn" (click)="onEdit(appointment)">
-       
-          </a>
-        <a  (click)="onDelete(appointment)" class="btn btn-danger">
-            <i class="fa fa-pencil-square-o">Eliminar</i>
-        </a> -->
-      </td>
-      <td>
-          <button type="button" class="btn btn-danger" (click)="onDelete(appointment)" >Eliminar</button>
-      </td>
-    </tr>
-
-  </tbody>
-
-</table>
-<pagination-controls (pageChange)="p=$event"></pagination-controls>
+    <app-menu></app-menu>
+    <div id="content-wrapper">
+  
+      <div class="container-fluid">
+        <!-- Area -->
+        <div class="card mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a routerLink="/citas">Clitas</a>
+            </li>
+            <li class="breadcrumb-item active">Lista de citas</li>
+          </ol>
+          <div style="text-align:center">
+            <h2 class="jumbotron bg-secondary text-white"> Lista de citas</h2>
+          </div>
+          <div class="class form-row">
+              <div class="class form-group col-md-10">
+              </div>
+              <div class="class form-group col-md-2">
+                   <button type="button" class="btn btn-primary btn-sm" routerLink='/agregar-cita'>
+                      <span style="font-weight: bolder;">+</span> Agregar cita
+                    </button>
+  
+              </div>
+          </div>
+          <span></span>
+          <span class=""></span>
+          <div class="row">
+            <div class="class col-md 12">
+                <table  class="table table-sm table-hover table-striped">
+                    <caption>Última actualización {{today | date:'medium' }}</caption>
+                    <thead>
+                      <th scope="col">#</th>
+                      <th scope="col">Fecha</th>
+                      <th scope="col">Nombre Paciente</th>
+                      <th scope="col">Tel</th>
+                      <th scope="col">Dr</th>
+                      <th scope="col">Estatus</th>
+                      <th scope="col">Acción</th>
+                      <th scope="col"></th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let appointment of appointmentService.AppointmentListCurrent | paginate: {itemsPerPage: 10, currentPage: p} ">
+                  
+                        <td>{{appointment.IdAppointment}}</td>
+                        <td>{{appointment.Date  | date:'medium' }}</td>
+                        <td>{{appointment.PatientName}}</td>
+                        <td>{{appointment.PatientPhone}}</td>
+                        <td>{{appointment.UserName}}</td>
+                        <td>{{appointment.Status}}</td>
+                        <td>
+                       
+                          <button type="button" class="btn btn-secondary btn-sm" routerLink="/editar-cita" >Editar</button>
+                     
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm"  (click)="onDelete(appointment)">Eliminar</button>
+                     
+                        </td>
+                      </tr>
+                  
+                    </tbody>
+                  
+                  </table>
+                  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+                  
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>

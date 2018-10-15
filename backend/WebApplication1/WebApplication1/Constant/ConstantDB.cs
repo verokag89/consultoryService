@@ -36,6 +36,7 @@ namespace WebApplication1.Constant
     public static class AppointmentDb {
 
         public static string GetAppointment = "usp_getAllAppointment";
+        public static string GetAppointmentCurrent = "usp_getAppointmentCurrent";
         public static string PostAppointment = "usp_saveAppointment";
         public static string PutAppointment = "usp_updateAppointmentById";
         public static string GetAppointmentById = "usp_getAppointmentById";
