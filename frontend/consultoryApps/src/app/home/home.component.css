@@ -356,3 +356,13 @@
     color: #de4437;
     background: rgba(222, 68, 55, 0.1);
 }
+
+.u-icon-primary--air {
+  color: #377dff;
+  background: rgba(55, 125, 255, 0.1);
+}
+
+.u-icon-success--air {
+  color: #00c9a7;
+  background: rgba(0, 201, 167, 0.1);
+}
