@@ -42,7 +42,7 @@
                       <th scope="col"></th>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let appointment of appointmentService.AppointmentListCurrent | paginate: {itemsPerPage: 10, currentPage: p} ">
+                      <tr *ngFor="let appointment of appointmentService.AppointmentList | paginate: {itemsPerPage: 10, currentPage: p} ">
                   
                         <td>{{appointment.IdAppointment}}</td>
                         <td>{{appointment.Date  | date:'medium' }}</td>

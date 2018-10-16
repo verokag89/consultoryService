@@ -26,6 +26,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: api/Appointment
+        [Route("api/Appointment/{idCurrent}/{isCurrent}")]
         public HttpResponseMessage Get(string idCurrent,string isCurrent)
         {
             using (var connection = new SqlConnection(strcon))
