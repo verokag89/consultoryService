@@ -8,18 +8,22 @@
         <div class="card mb-3">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a routerLink="/citas">Clitas</a>
+              <a routerLink="/lista-citas">Citas</a>
             </li>
             <li class="breadcrumb-item active">Lista de citas</li>
           </ol>
-          <div style="text-align:center">
-            <h2 class="jumbotron bg-secondary text-white"> Lista de citas</h2>
-          </div>
+          <div class="bg-custom-appoints">
+              <div style="text-align:center " class="header-caption">
+                <h2 class="text-white"> Lista de citas</h2>
+              </div>
+            </div>
+            <br>
+
           <div class="class form-row">
               <div class="class form-group col-md-10">
               </div>
               <div class="class form-group col-md-2">
-                   <button type="button" class="btn btn-primary " style="width:100%" routerLink='/agregar-cita'>
+                   <button type="button" class="btn btn-info " style="width:100%" routerLink='/agregar-cita'>
                     <i class="far fa-calendar-plus">&nbsp;</i>  Agregar cita
                     </button>
   
@@ -52,7 +56,7 @@
                         <td>{{appointment.Status}}</td>
                         <td>
                        
-                          <button type="button" class="btn btn-secondary btn-sm" routerLink="/editar-cita" ><i class="fa fa-pencil-square-o"></i></button>
+                          <button type="button" class="btn btn-warning btn-sm" routerLink="/editar-cita" ><i class="fa fa-pencil-square-o"></i></button>
                      
                         </td>
                         <td>

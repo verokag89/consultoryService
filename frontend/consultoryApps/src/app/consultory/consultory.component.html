@@ -12,9 +12,14 @@
           </li>
           <li class="breadcrumb-item active">Registro</li>
         </ol>
-        <div style="text-align:center">
-          <h2 class="jumbotron bg-secondary text-white"> Registro de Consultorio</h2>
-        </div>
+      
+        <div class="bg-custom-consultor">
+            <div style="text-align:center " class="header-caption">
+              <h2 class="text-white">Registro de Consultorio</h2>
+            </div>
+          </div>
+          <br>
+
         <div class="row">
           <div class="class col-md-6">
             <span>{{titlePage}}</span>
@@ -47,7 +52,7 @@
                     <i class="fas fa-floppy-o">&nbsp;</i>Guardar</button>
                 </div>
                 <div class="class form-group col-md-4">
-                  <button type="button" class="btn btn-lg btn-block btn-secondary" (click)=resetForm(consultoryForm)>
+                  <button type="button" class="btn btn-lg btn-block btn-danger" (click)=resetForm(consultoryForm)>
                     <i class="fas fa-repeat">&nbsp;</i>Limpiar</button>
                 </div>
               </div>
@@ -73,7 +78,7 @@
                   <td>{{consultory.Location}} </td>
                   <td>{{consultory.Phone}}</td>
                   <td>
-                      <button type="button" class="btn btn-secondary btn-sm" (click)="showForEdit(consultory)"><i class="fa fa-pencil-square-o"></i></button>
+                      <button type="button" class="btn btn-warning btn-sm" (click)="showForEdit(consultory)"><i class="fa fa-pencil-square-o"></i></button>
                      
                       <!-- <a  class="btn breadcrumb-item" (click)="showForEdit(consultory)">
                           <i class="fa fa-pencil-square-o"></i>Editar

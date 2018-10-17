@@ -18,3 +18,34 @@ button:hover, a bnt:hover{
 .card{
     border: none;
 }
+
+.carousel-caption{
+
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  .btn-info {
+    color: #fff;
+    background-color:rgb(4, 30, 51);
+    border-color:rgb(4, 30, 51);
+    /* border-color: hsl(188, 86%, 16%);*/
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    color: #fff;
+    background-color: rgb(4, 30, 51);
+    border-color: rgb(4, 30, 51);
+}
+
+
+.btn-warning {
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    color: #fff;
+    background-color: #e0a800;
+    border-color: #d39e00;
+}

@@ -375,3 +375,33 @@
       width: calc(100% - 90px);
     }
   }
+
+
+.bg-custom-appoints{
+  background-image: url('/assets/images/citas-medicas.jpg') !important;
+  width:1024;
+  height:170px;
+}
+.header-caption{
+  background-color: rgba(0,0,0,0.6);
+  display: grid;
+  margin: auto;
+  text-align: center;
+  margin-top: 11%;
+}
+
+.panel-default>.panel-heading {
+  color:  #fff;
+  background-color: rgb(4, 30, 51);
+  border-color: #ddd;
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.panel-body {
+  padding: 15px;
+}

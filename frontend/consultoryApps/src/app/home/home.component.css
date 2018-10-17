@@ -357,6 +357,15 @@
     background: rgba(222, 68, 55, 0.1);
 }
 
+.u-icon-purple--air[_ngcontent-c1] {
+  color: #a906f5;
+  background: rgba(222, 68, 55, 0.1);
+}
+.u-icon-pink--air[_ngcontent-c1] {
+  color: #ff087b;
+  background: rgba(222, 68, 55, 0.1);
+}
+
 .u-icon-primary--air {
   color: #377dff;
   background: rgba(55, 125, 255, 0.1);
@@ -365,4 +374,9 @@
 .u-icon-success--air {
   color: #00c9a7;
   background: rgba(0, 201, 167, 0.1);
+}
+
+.carousel-caption{
+
+  background-color: rgba(0,0,0,0.6);
 }

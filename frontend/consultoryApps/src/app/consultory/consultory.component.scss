@@ -45,3 +45,33 @@
   }
   
   
+.bg-custom-consultor{
+  background-image: url('/assets/images/consultorio-medico4.jpg') ;
+  width:1024; 
+  height:170px;
+  text-align: center;
+
+}
+.header-caption{
+  background-color: rgba(0,0,0,0.6);
+  display: grid;
+  margin: auto;
+  text-align: center;
+  margin-top: 11%;
+}
+
+.panel-default>.panel-heading {
+  color:  #fff;
+  background-color: rgb(4, 30, 51);
+  border-color: #ddd;
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.panel-body {
+  padding: 15px;
+}
