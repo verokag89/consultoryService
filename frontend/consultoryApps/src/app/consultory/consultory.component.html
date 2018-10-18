@@ -19,44 +19,50 @@
             </div>
           </div>
           <br>
-
+        
         <div class="row">
-          <div class="class col-md-6">
-            <span>{{titlePage}}</span>
-            <form class="consultory-form" #consultoryForm="ngForm" (ngSubmit)="onSubmit(consultoryForm)">
+          <div class="class col-md-6">        
+            <div class="panel panel-default">
+              <div class="panel-heading"> {{titlePage}}</div>
+              <div class="">
+                <form class="consultory-form" #consultoryForm="ngForm" (ngSubmit)="onSubmit(consultoryForm)">
 
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                    <input class="form-control" type="hidden" name="IdConsultory" #IdConsultory="ngModel" [(ngModel)]="consultoryService.selectedConsultory.IdConsultory"  />
-                  <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="consultoryService.selectedConsultory.Name" placeholder="Nombre"
-                    required />
-                  <div class="validation-error" *ngIf="Name.invalid && Name.touched">Este campo es requerido.</div>
-                </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <input class="form-control" type="hidden" name="IdConsultory" #IdConsultory="ngModel" [(ngModel)]="consultoryService.selectedConsultory.IdConsultory"  />
+                      <input class="form-control" name="Name" #Name="ngModel" [(ngModel)]="consultoryService.selectedConsultory.Name" placeholder="Nombre"
+                        required />
+                      <div class="validation-error" *ngIf="Name.invalid && Name.touched">Este campo es requerido.</div>
+                    </div>
+    
+                    <div class="form-group col-md-12">
+                      <input class="form-control" name="Location" #Location="ngModel" [(ngModel)]="consultoryService.selectedConsultory.Location"
+                        placeholder="Ubicación" required />
+                      <div class="validation-error" *ngIf="Location.invalid && Location.touched">Este campo es requerido.</div>
+                    </div>
+    
+                    <div class="form-group col-md-12">
+                      <input class="form-control" name="Phone" #Phone="ngModel" [(ngModel)]="consultoryService.selectedConsultory.Phone" placeholder="Telefono"
+                        required />
+                      <div class="validation-error" *ngIf="Phone.invalid && Phone.touched">Este campo es requerido.</div>
+                    </div>
+                  </div>
+    
+                  <div class="class form-row">
+                    <div class="class form-group col-md-8">
+                      <button type="submit" class="btn btn-lg btn-block btn-info" [disabled]="!consultoryForm.valid">
+                        <i class="fas fa-floppy-o">&nbsp;</i>Guardar</button>
+                    </div>
+                    <div class="class form-group col-md-4">
+                      <button type="button" class="btn btn-lg btn-block btn-danger" (click)=resetForm(consultoryForm)>
+                        <i class="fas fa-repeat">&nbsp;</i>Limpiar</button>
+                    </div>
+                  </div>
+                </form>
 
-                <div class="form-group col-md-12">
-                  <input class="form-control" name="Location" #Location="ngModel" [(ngModel)]="consultoryService.selectedConsultory.Location"
-                    placeholder="Ubicación" required />
-                  <div class="validation-error" *ngIf="Location.invalid && Location.touched">Este campo es requerido.</div>
-                </div>
-
-                <div class="form-group col-md-12">
-                  <input class="form-control" name="Phone" #Phone="ngModel" [(ngModel)]="consultoryService.selectedConsultory.Phone" placeholder="Telefono"
-                    required />
-                  <div class="validation-error" *ngIf="Phone.invalid && Phone.touched">Este campo es requerido.</div>
-                </div>
               </div>
-
-              <div class="class form-row">
-                <div class="class form-group col-md-8">
-                  <button type="submit" class="btn btn-lg btn-block btn-info" [disabled]="!consultoryForm.valid">
-                    <i class="fas fa-floppy-o">&nbsp;</i>Guardar</button>
-                </div>
-                <div class="class form-group col-md-4">
-                  <button type="button" class="btn btn-lg btn-block btn-danger" (click)=resetForm(consultoryForm)>
-                    <i class="fas fa-repeat">&nbsp;</i>Limpiar</button>
-                </div>
-              </div>
-            </form>
+            </div>
+           
           </div>
           <div class="class col-md-6">
             <table class="table table-sm table-hover table-striped">
