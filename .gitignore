@@ -1,2 +1,11 @@
 
 *.dll
+backend/WebApplication1/.vs/config/applicationhost.config
+backend/WebApplication1/.vs/WebApplication1/v14/.suo
+backend/WebApplication1/WebApplication1/bin/WebApplication1.dll.config
+backend/WebApplication1/WebApplication1/bin/WebApplication1.pdb
+backend/WebApplication1/WebApplication1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+backend/WebApplication1/WebApplication1/obj/Debug/WebApplication1.csproj.FileListAbsolute.txt
+backend/WebApplication1/WebApplication1/obj/Debug/WebApplication1.csprojResolveAssemblyReference.cache
+backend/WebApplication1/WebApplication1/obj/Debug/WebApplication1.dll
+backend/WebApplication1/WebApplication1/obj/Debug/WebApplication1.pdb
