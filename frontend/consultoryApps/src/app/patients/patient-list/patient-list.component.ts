@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-patient-list',
   templateUrl: './patient-list.component.html',
-  styleUrls: ['./patient-list.component.css']
+  styleUrls: ['./patient-list.component.scss']
 })
 export class PatientListComponent implements OnInit {
   public today: number = Date.now();

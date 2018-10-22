@@ -12,6 +12,7 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import{ TruncatePipe} from '../pipes/truncate.pipe'
 import{ DateFormatPipe} from '../pipes/formatDate.pipe'
+import{ FilterPipe} from '../pipes/filter.pipe'
 @NgModule({
   imports: [
     CommonModule,
@@ -20,9 +21,9 @@ import{ DateFormatPipe} from '../pipes/formatDate.pipe'
     NgxPaginationModule,
     NgbModule.forRoot()
   ],
-  exports:[MenuComponent, FooterComponent, FormsModule, CommonModule,NgbdDatepickerPopup, NgxPaginationModule,TruncatePipe, DateFormatPipe],
-  declarations: [ MenuComponent, FooterComponent, NgbdDatepickerPopup, TruncatePipe, DateFormatPipe ],
-  providers:    [ DateFormatPipe ],
+  exports:[MenuComponent, FooterComponent, FormsModule, CommonModule,NgbdDatepickerPopup, NgxPaginationModule,TruncatePipe, DateFormatPipe, FilterPipe],
+  declarations: [ MenuComponent, FooterComponent, NgbdDatepickerPopup, TruncatePipe, DateFormatPipe, FilterPipe ],
+  providers:    [ DateFormatPipe, FilterPipe ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class SharedModule { }

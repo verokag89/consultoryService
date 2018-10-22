@@ -1,45 +1,60 @@
-<table  class="table table-sm table-hover table-striped">
-  <caption>Última actualización {{today | date:'medium' }}</caption>
-  <thead>
-    <th scope="col">#</th>
-    <th scope="col">Nombre</th>
-    <th scope="col">Apellido</th>
-    <th scope="col">Fecha Nac.</th>
-    <th scope="col">Tel</th>
-    <th scope="col">Otro Tel.</th>
-    <th scope="col">Estatus</th>
-    <th scope="col">Email</th>
-    <th scope="col">Acción</th>
-    <th scope="col"></th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let patient of patientService.PatientList | paginate: {itemsPerPage: 10, currentPage: p} ">
+<div class="col-lg-6 col-md-12">
+  <form class="form-inline md-form form-sm active-cyan active-cyan-2 active-cyantest" ngNoForm>
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input class="form-control form-control-sm ml-3 w-75 " type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchText">
+  </form>
 
-      <td>{{patient.IdPatient}}</td>
-      <td>{{patient.FirstName}}</td>
-      <td>{{patient.LastName}}</td>
-      <td>{{patient.BirthDate  | date:'mediumDate' }}</td>
-      <td>{{patient.Phone}}</td>
-      <td>{{patient.Phone2}}</td>
-      <td>{{patient.Active}}</td>
-      <td>{{patient.Email}}</td>
-      <td>
-        <!-- <a routerLink="/editar-paciente" class="btn" (click)="onEdit(patient)">
-        <i class="fa fa-pencil-square-o">Editar</i>
-        </a>
-        <a  (click)="onDelete(patient)" class="btn">
-            <i class="fa fa-pencil-square-o">Eliminar</i>
-        </a> -->
-        <button type="button" class="btn btn-warning" (click)="onEdit(patient)"> <i class="fa fa-pencil-square-o"></i></button>
-          
-      </td>
-      <td>
-          <button type="button" class="btn btn-danger" (click)="onDelete(patient)"><i class="far fa-trash-alt"></i></button>
-          
-      </td>
-    </tr>
+</div>
+<br>
+<div class="col-md-12">
+  <table class="table table-sm table-hover table-striped">
+    <caption>Última actualización {{today | date:'medium' }}</caption>
+    <thead>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Fecha Nac.</th>
+      <th scope="col">Tel</th>
+      <th scope="col">Otro Tel.</th>
+      <th scope="col">Estatus</th>
+      <th scope="col">Email</th>
+      <th scope="col">Acción</th>
+      <th scope="col"></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patientService.PatientList | filter: searchText | paginate: {itemsPerPage: 10, currentPage: p} ">
 
-  </tbody>
+        <td>{{patient.IdPatient}}</td>
+        <td>{{patient.FirstName}}</td>
+        <td>{{patient.LastName}}</td>
+        <td>{{patient.BirthDate | date:'mediumDate' }}</td>
+        <td>{{patient.Phone}}</td>
+        <td>{{patient.Phone2}}</td>
+        <td>{{patient.Active}}</td>
+        <td>{{patient.Email}}</td>
+        <td>
+          <!-- <a routerLink="/editar-paciente" class="btn" (click)="onEdit(patient)">
+              <i class="fa fa-pencil-square-o">Editar</i>
+              </a>
+              <a  (click)="onDelete(patient)" class="btn">
+                  <i class="fa fa-pencil-square-o">Eliminar</i>
+              </a> -->
+          <button type="button" class="btn btn-warning" (click)="onEdit(patient)">
+            <i class="fa fa-pencil-square-o"></i>
+          </button>
 
-</table>
-<pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="onDelete(patient)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+</div>
