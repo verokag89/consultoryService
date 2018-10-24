@@ -158,7 +158,7 @@ namespace WebApplication1.Repository
                         {
                             LastName = rdr["LastName"].ToString(),
                             FirstName = rdr["FirstName"].ToString(),
-                            IdPosition = Convert.ToInt32(rdr["IdPosition"] != null ? 0 : rdr["IdPosition"]),
+                            IdPosition = Convert.ToInt32(rdr["IdPosition"] != null ? rdr["IdPosition"] : 0),
                             PositionRol = rdr["Position"].ToString(),
                             IdUser = Convert.ToInt32(rdr["IdUser"]),
                             Date = Convert.ToDateTime(rdr["Date"] != null ? DateTime.Today.Date : rdr["Date"]),
