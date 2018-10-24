@@ -15,3 +15,4 @@ backend/WebApplication1/WebApplication1/obj/Debug/WebApplication1.csprojResolveA
 backend/WebApplication1/WebApplication1/obj/Debug/WebApplication1.csproj.FileListAbsolute.txt
 backend/WebApplication1/WebApplication1/bin/WebApplication1.pdb
 backend/WebApplication1/WebApplication1/bin/WebApplication1.dll
+*.dll
