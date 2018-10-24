@@ -58,7 +58,7 @@ namespace WebApplication1.Constant
         public static string UpdateConsultory = "usp_updateConsultory";
         public static string DeleteConsultoryById = "usp_deleteConsultory";
 
-        public static string IdConsultory= "@pIdConsultory";
+        public static string IdConsultory= "@pConsultoryId";
         public static string Location ="@pLocation";
         public static string Name = "@pName";
         public static string Phone = "@pPhone";

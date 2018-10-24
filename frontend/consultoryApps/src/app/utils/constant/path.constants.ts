@@ -23,7 +23,7 @@ export class PathConstants {
 
     /* Begin -> Consultory*/
     static POST_CONSULTORY = "/api/Consultory"
-    static PUT_CONSULTORY = "/api/Consultory"
+    static PUT_CONSULTORY = "/api/Consultory/"
     static GET_CONSULTORY = "/api/Consultory"
     static DELETE_CONSULTORY = "/api/Consultory/"
     /* End -> Consultory*/

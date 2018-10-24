@@ -41,14 +41,13 @@ export class ConsultoryComponent implements OnInit {
       Phone: '',
       Logo: ''
     }
-
     this.consultoryService.titlePage = "Agregar Consultorio";
+    this.titlePage = this.consultoryService.titlePage;
   }
 
   onSubmit(form: NgForm) {
 
-    if(form.value.IdPatient= null){
-
+    if(form.value.IdConsultory == null){
       this.consultoryService.postConsultory(form.value).subscribe(data => {
         this.resetForm(form);
         this.toasterService.success("El consultorio ha sido agregado", "Registro Consultorio");

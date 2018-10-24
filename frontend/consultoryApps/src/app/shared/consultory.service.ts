@@ -25,12 +25,12 @@ export class ConsultoryService {
     return this.http.post(url,body).map(res =>res.json());
   }
 
-  putConsultory(user: Consultory){
-    let url : string = PathConstants.getWorkingPath(PathConstants.PUT_CONSULTORY);
-    var body = JSON.stringify(user);
+  putConsultory(consult: Consultory){
+    let url : string = PathConstants.getWorkingPath(PathConstants.PUT_CONSULTORY)+consult.IdConsultory;
+    var body = JSON.stringify(consult);
     var headerOptions = new Headers({'Content-Type': 'applications/json'});
-    var requestOptions = new RequestOptions({method: RequestMethod.Post, headers : headerOptions});
-    return this.http.post(url,body).map(res =>res.json());
+    var requestOptions = new RequestOptions({method: RequestMethod.Put, headers : headerOptions});
+    return this.http.put(url,body).map(res =>res.json());
   }
 
   getConsultory(){

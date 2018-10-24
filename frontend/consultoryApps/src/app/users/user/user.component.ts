@@ -79,7 +79,7 @@ export class UserComponent implements OnInit {
       this.PositionList = res;
     }).catch(err => {
 
-      });
+    });
 
   }
 
