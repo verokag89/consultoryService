@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserService
     , private toasterService: ToastrService
     , private aRoute: ActivatedRoute
+    , private router :Router
   ) { 
 
     this.aRoute.params.subscribe(params => {
@@ -30,7 +31,7 @@ export class UserComponent implements OnInit {
       if (this.UserId) {
 
         this.userService.getUserById(this.UserId).then(data => {
-       
+          
         });
       }
     });
@@ -65,12 +66,27 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.userService.postUser(form.value).subscribe(data => {
-      this.resetForm(form);
-      this.toasterService.success("El usuario ha sido agregado", "Registro Usuario");
-      this.userService.getUsers();
-    })
 
+
+        
+    if(form.value.IdUser== null){
+
+      this.userService.postUser(form.value).subscribe(data => {
+        this.resetForm(form);
+        this.toasterService.success("El usuario ha sido agregado", "Registro Usuario");
+        this.router.navigateByUrl('/usuarios');
+      })
+  
+    }else{
+
+      this.userService.putUser(form.value).subscribe(data => {
+        this.resetForm(form);
+        this.toasterService.success("El usuario ha sido editado", "Registro Usuario");
+        this.router.navigateByUrl('/usuarios');
+      })
+  
+    }
+  
   }
 
   getPositions(): void {

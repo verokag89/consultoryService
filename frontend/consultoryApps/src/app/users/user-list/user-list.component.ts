@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
 
-  constructor(private userService: UserService,private toasterService: ToastrService, private routes: Router) { }
+  constructor(private userService: UserService,private toasterService: ToastrService, private routes: Router) { 
+
+    this.userService.getUsers();
+  }
 
   ngOnInit() {
     this.userService.getUsers();

@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class PatientComponent implements OnInit {
 
   PatientId: number;
+  TitlePage: string;
 
   constructor(
     private patientService: PatientService,
@@ -30,11 +31,14 @@ export class PatientComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     if (this.PatientId) {
-
+      this.TitlePage = "Editar";
       this.patientService.getPatientById(this.PatientId).then(data => {
 
         this.onSavePatientChanged(this.patientService.selectedPatient.Active);
       });
+    } else {
+      this.TitlePage = "Agregar";
+
     }
   }
 
@@ -43,33 +47,33 @@ export class PatientComponent implements OnInit {
     if (form != null)
       form.reset();
 
-      if(isNaN(this.PatientId)){
+    if (isNaN(this.PatientId)) {
 
-        this.patientService.selectedPatient = {
-          IdPatient: null,
-          FirstName: '',
-          LastName: '',
-          BirthDate: null,
-          Phone: '',
-          Phone2: '',
-          Active: false,
-          Email: ''
-        }
-      }else {
-
-        this.patientService.selectedPatient = {
-          IdPatient: this.PatientId,
-          FirstName: '',
-          LastName: '',
-          BirthDate: null,
-          Phone: '',
-          Phone2: '',
-          Active: false,
-          Email: ''
-        }
-
+      this.patientService.selectedPatient = {
+        IdPatient: null,
+        FirstName: '',
+        LastName: '',
+        BirthDate: null,
+        Phone: '',
+        Phone2: '',
+        Active: false,
+        Email: ''
       }
- 
+    } else {
+
+      this.patientService.selectedPatient = {
+        IdPatient: this.PatientId,
+        FirstName: '',
+        LastName: '',
+        BirthDate: null,
+        Phone: '',
+        Phone2: '',
+        Active: false,
+        Email: ''
+      }
+
+    }
+
 
 
   }

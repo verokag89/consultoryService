@@ -16,7 +16,7 @@ export class PathConstants {
     static POST_USER = "/api/User";
     static GET_USER = "/api/User"; //"/api/Users";
     static GET_USER_BY_ID = "/api/User/";
-    static PUT_USER = "/api/Users";
+    static PUT_USER = "/api/User/";
     static DELETE_USER = "/api/User/"
     static GET_POSITIONS = "/api/Position";
     /* End -> Users*/

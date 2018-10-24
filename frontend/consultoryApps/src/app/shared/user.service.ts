@@ -28,6 +28,14 @@ export class UserService {
     return this.http.post(url, body).map(res => res.json());
   }
 
+  putUser(user: User) {
+    let url: string = PathConstants.getWorkingPath(PathConstants.PUT_USER) + user.IdUser;
+    var body = JSON.stringify(user);
+    var headerOptions = new Headers({ 'Content-Type': 'applications/json' });
+    var requestOptions = new RequestOptions({ method: RequestMethod.Put, headers: headerOptions });
+    return this.http.put(url, body).map(res => res.json());
+  }
+
   getUsers() {
     let url: string = PathConstants.getWorkingPath(PathConstants.GET_USER);
 
