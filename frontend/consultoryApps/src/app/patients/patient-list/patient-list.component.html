@@ -30,9 +30,11 @@
         <td>{{patient.BirthDate | date:'mediumDate' }}</td>
         <td>{{patient.Phone}}</td>
         <td>{{patient.Phone2}}</td>
-        <td>{{patient.Active}}</td>
+        <td class="col-centered">
+          <i class="fas fa-square" [ngClass]="(patient.Active == true) ? 'class-active' : 'class-inactive'"></i>
+        </td>
         <td>{{patient.Email}}</td>
-        <td>
+        <td class="col-centered">
           <!-- <a routerLink="/editar-paciente" class="btn" (click)="onEdit(patient)">
               <i class="fa fa-pencil-square-o">Editar</i>
               </a>
@@ -44,7 +46,7 @@
           </button>
 
         </td>
-        <td>
+        <td >
           <button type="button" class="btn btn-danger" (click)="onDelete(patient)">
             <i class="far fa-trash-alt"></i>
           </button>

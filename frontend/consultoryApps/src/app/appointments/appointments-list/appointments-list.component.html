@@ -53,20 +53,17 @@
                         <td>{{appointment.PatientName}}</td>
                         <td>{{appointment.PatientPhone}}</td>
                         <td>{{appointment.UserName}}</td>
-                        <td>{{appointment.Status}}</td>
-                        <td>
-                       
+                        <td class="col-centered">
+                            <i class="fas fa-square" [ngClass]="(appointment.Status == true) ? 'class-active' : 'class-inactive'"></i>
+                          </td>
+                        <td class="col-centered">
                           <button type="button" class="btn btn-warning btn-sm" routerLink="/editar-cita" ><i class="fa fa-pencil-square-o"></i></button>
-                     
                         </td>
                         <td>
                             <button type="button" class="btn btn-danger btn-sm"  (click)="onDelete(appointment)"><i class="far fa-trash-alt"></i></button>
-                     
                         </td>
                       </tr>
-                  
                     </tbody>
-                  
                   </table>
                   <pagination-controls (pageChange)="p=$event"></pagination-controls>
                   
