@@ -61,7 +61,8 @@ export class PatientService {
     this.http.get(url).map((data: Response) => {
       return data.json() as Patient[];
     }).toPromise().then(x => {
-      this.PatientList = x;
+      this.PatientList = x.sort((a:Patient, b:Patient) => Number(b.Active) - Number(a.Active));
+
     })
   }
 
