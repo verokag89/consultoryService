@@ -9,6 +9,7 @@ import { NgbdDatepickerPopup } from '../components/datepicker-popup';
 import { NgxPaginationModule, PaginationControlsDirective, PaginatePipe } from  'ngx-pagination';
 
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import{ TruncatePipe} from '../pipes/truncate.pipe'
 import{ DateFormatPipe} from '../pipes/formatDate.pipe'
@@ -19,6 +20,7 @@ import{ FilterPipe} from '../pipes/filter.pipe'
     RouterModule,
     FormsModule,
     NgxPaginationModule,
+    NgSelectModule,
     NgbModule.forRoot()
   ],
   exports:[MenuComponent, FooterComponent, FormsModule, CommonModule,NgbdDatepickerPopup, NgxPaginationModule,TruncatePipe, DateFormatPipe, FilterPipe],

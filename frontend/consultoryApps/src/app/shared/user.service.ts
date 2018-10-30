@@ -46,18 +46,6 @@ export class UserService {
     })
   }
 
-  getUserDoctors() :  User[]{
-    let url: string = PathConstants.getWorkingPath(PathConstants.GET_USER);
-
-    this.http.get(url).map((data: Response) => {
-      return data.json() as User[];
-    }).toPromise().then(x => {
-      this.UserDrList = x.filter(data=> data.IdPosition== 1);
-    })
-
-    return this.UserDrList ;
-  }
-
 
   getUserById(userId: number) {
     let url: string = PathConstants.getWorkingPath(PathConstants.GET_USER_BY_ID) + userId;
@@ -95,6 +83,19 @@ export class UserService {
       });
 */
   }
+
+
+  getUserDoctors(){
+    let url: string = PathConstants.getWorkingPath(PathConstants.GET_USER);
+
+    return this.http.get(url).map((data: Response) => {
+      return data.json() as User[];
+    }).toPromise().then(x => {
+      this.UserDrList = x.filter(data=> data.IdPosition== 1);
+    })
+
+  }
+
 
   deleteUser(user: User) {
     let url: string = PathConstants.getWorkingPath(PathConstants.DELETE_USER) + user.IdUser;

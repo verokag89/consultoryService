@@ -16,6 +16,7 @@ import { AppointmentsListComponent } from '../appointments/appointments-list/app
 import { AppointmentComponent } from '../appointments/appointment/appointment.component'
 import { UserService } from '../shared/user.service';
 import { AppoinmentService } from '../shared/appoinment.service';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AppoinmentService } from '../shared/appoinment.service';
     RouterModule,
     FormsModule,
     SharedModule,
+    NgSelectModule,
     RouterModule.forChild([
       { path: 'lista-citas', component: AppointmentsListComponent },
       { path: 'agregar-cita', component: AppointmentComponent }

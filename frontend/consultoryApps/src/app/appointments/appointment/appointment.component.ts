@@ -5,6 +5,7 @@ import { AppoinmentService } from '../../shared/appoinment.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import {NgSelectModule, NgOption} from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-appointment',
@@ -38,8 +39,9 @@ export class AppointmentComponent implements OnInit {
       this.TitlePage = "Agregar";
     }
 
-    this.getAllUser();
-    this.getAllPatient();
+    this.userService.getUserDoctors();
+    this.patientService.getActivePatients();
+ //   this.getAllPatient();
   }
 
 
@@ -76,15 +78,8 @@ export class AppointmentComponent implements OnInit {
    
   }
   
-  getAllUser(){
-    this.appointmentService.UsersActiveList = this.userService.getUserDoctors();
-    this.appointmentService.UsersActiveList= this.userService.UserDrList;
-  }
 
-  getAllPatient(){
-    this.appointmentService.PatientActiveList =  this.patientService.getActivePatients();
 
-  }
 
 
 

@@ -1,3 +1,5 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 form.user-form, form.consultory-form, form.patient-form, form.appointment-form {

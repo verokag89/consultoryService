@@ -3,6 +3,7 @@ export class Patient {
     IdPatient : number;
     FirstName: string;
     LastName: string;
+    NameSearch: string;
     Email: string;
     BirthDate :Date;
     DateTime? :Date;

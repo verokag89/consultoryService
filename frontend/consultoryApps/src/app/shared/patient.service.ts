@@ -65,15 +65,17 @@ export class PatientService {
     })
   }
 
-  getActivePatients() : Patient[]{
+  getActivePatients() {
     let url: string = PathConstants.getWorkingPath(PathConstants.GET_PATIENTS);
 
-    this.http.get(url).map((data: Response) => {
+    return this.http.get(url).map((data: Response) => {
       return data.json() as Patient[];
     }).toPromise().then(x => {
+
+      x.forEach(data=>data.NameSearch= data.IdPatient + " - " + data.FirstName +" " + data.LastName );
       this.PatientActiveList = x.filter(data=> data.Active= true);
     })
-    return this.PatientActiveList;
+
   }
 
 
