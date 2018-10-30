@@ -16,3 +16,8 @@ backend/WebApplication1/WebApplication1/obj/Debug/WebApplication1.csproj.FileLis
 backend/WebApplication1/WebApplication1/bin/WebApplication1.pdb
 backend/WebApplication1/WebApplication1/bin/WebApplication1.dll
 *.dll
+*.pdb
+*.dll
+*.pdb
+*.dll
+backend/WebApplication1/.vs/WebApplication1/v14/.suo
