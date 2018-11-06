@@ -64,7 +64,9 @@
                                 bindValue="IdPatient"
                                 [multiple]="false"
                                 placeholder="Seleccionar paciente"
-                                [(ngModel)]="appointmentService.selectedAppointment.IdPatient">
+                                [(ngModel)]="appointmentService.selectedAppointment.IdPatient"
+                                (change)="onChangePatient($event)"
+                                >
                               </ng-select>
                             </div>
                             <div class="form-group col-md-1">
@@ -76,14 +78,14 @@
                             </div>
                             <div class="form-group col-md-6">
                               <div>Nombre:</div>
-                              <input class="form-control" name="PatientName" #PatientName="ngModel" [(ngModel)]="appointmentService.selectedAppointment.PatientName"
+                              <input class="form-control" name="PatientName" #PatientName="ngModel" [(ngModel)]="PatientNameText"
                                 placeholder="Paciente" required />
                               <div class="validation-error" *ngIf="PatientName.invalid && PatientName.touched">Este campo es requerido.</div>
                             </div>
             
                             <div class="form-group col-md-3">
                               <div>Tel:</div>
-                              <input class="form-control" name="PatientPhone" #PatientPhone="ngModel" [(ngModel)]="appointmentService.selectedAppointment.PatientPhone"
+                              <input class="form-control" name="PatientPhone" #PatientPhone="ngModel" [(ngModel)]="PatientPhoneText"
                                 placeholder="Telefono" required />
                               <div class="validation-error" *ngIf="PatientPhone.invalid && PatientPhone.touched">Este campo es requerido.</div>
                             </div>

@@ -16,6 +16,8 @@ export class AppointmentComponent implements OnInit {
 
   AppointId: number;
   TitlePage: string;
+  PatientNameText : string;
+  PatientPhoneText : string;
  
   constructor(
     private userService: UserService, 
@@ -77,6 +79,16 @@ export class AppointmentComponent implements OnInit {
       }
    
   }
+
+  onChangePatient($event) {
+    this.appointmentService.selectedAppointment.PatientName =$event.PatientName;
+    this.appointmentService.selectedAppointment.IdPatient = $event.IdPatient;
+    this.appointmentService.selectedAppointment.PatientName =$event.PatientPhone;
+
+    this.PatientNameText = $event.PatientName;
+    this.PatientPhoneText= $event.PatientPhone;
+    console.log($event);
+}
   
 
 
