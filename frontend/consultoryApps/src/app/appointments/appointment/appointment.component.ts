@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import {NgSelectModule, NgOption} from '@ng-select/ng-select';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-appointment',
@@ -24,7 +25,8 @@ export class AppointmentComponent implements OnInit {
     private patientService: PatientService, 
     private appointmentService: AppoinmentService,
     private aRoute: ActivatedRoute,
-    private router: Router ) {
+    private router: Router,
+    private toasterService: ToastrService ) {
       this.aRoute.params.subscribe(params => {
         this.AppointId = parseInt(params.id);
       });
@@ -81,18 +83,40 @@ export class AppointmentComponent implements OnInit {
   }
 
   onChangePatient($event) {
-    this.appointmentService.selectedAppointment.PatientName =$event.PatientName;
+    this.appointmentService.selectedAppointment.PatientName =$event.FirstName +" " + $event.LastName;
     this.appointmentService.selectedAppointment.IdPatient = $event.IdPatient;
-    this.appointmentService.selectedAppointment.PatientName =$event.PatientPhone;
+    this.appointmentService.selectedAppointment.PatientPhone =$event.Phone;
 
-    this.PatientNameText = $event.PatientName;
-    this.PatientPhoneText= $event.PatientPhone;
+    this.PatientNameText = this.appointmentService.selectedAppointment.PatientName ;
+    this.PatientPhoneText= this.appointmentService.selectedAppointment.PatientPhone;
     console.log($event);
 }
   
 
+onOptionsSelected($event){
+  this.appointmentService.selectedAppointment.IdUser = $event;
+}
+
+onSubmit(form: NgForm){
 
 
+  if(form.value.IdAppointment == null){
 
+    this.appointmentService.postAppointment(form.value).subscribe(data => {
+      this.resetForm(form);
+      this.toasterService.success("La cita ha sido guardada", "Registro de Citas");
+      this.router.navigateByUrl('/lista-citas');
+    })
+
+  }else{
+
+    this.appointmentService.putAppointment(form.value).subscribe(data => {
+      this.resetForm(form);
+      this.toasterService.success("La cita ha sido editado", "Registro de Citas");
+      this.router.navigateByUrl('/lista-citas');
+    })
+
+  }
+}
 
 }

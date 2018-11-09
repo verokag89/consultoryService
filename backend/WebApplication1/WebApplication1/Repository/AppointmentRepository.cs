@@ -117,17 +117,22 @@ namespace WebApplication1.Repository
             response.Entity = appoint;
             try
             {
-                using (SqlCommand cmd = new SqlCommand(PatientDb.PostPatient, connection))
+                using (SqlCommand cmd = new SqlCommand(AppointmentDb.PostAppointment, connection))
                 {
+                    var hour= int.Parse(appoint.Time.Split(':')[0]);
+                    var minute = int.Parse(appoint.Time.Split(':')[1]);
+                    TimeSpan time = new TimeSpan(hour,minute,0);
+                    DateTime combined = appoint.Date.Add(time);
+
 
                     cmd.CommandType = CommandType.StoredProcedure;
                   
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.UserId, appoint.IdUser));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.PatientId, appoint.IdPatient));
-                    cmd.Parameters.Add(new SqlParameter(AppointmentDb.Comments, appoint.Comments));
+                    cmd.Parameters.Add(new SqlParameter(AppointmentDb.Comments, appoint.Comments!= null ? appoint.Comments : ""));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.Status, appoint.Status));
-                    cmd.Parameters.Add(new SqlParameter(AppointmentDb.Date, appoint.Date));
- 
+                    cmd.Parameters.Add(new SqlParameter(AppointmentDb.Date, combined));
+                    
                     connection.Open();
                     int k = cmd.ExecuteNonQuery();
                     if (k != 0)
@@ -200,12 +205,16 @@ namespace WebApplication1.Repository
             {
                 using (SqlCommand cmd = new SqlCommand(AppointmentDb.PutAppointment, connection))
                 {
+                    var hour = int.Parse(appoint.Time.Split(':')[0]);
+                    var minute = int.Parse(appoint.Time.Split(':')[1]);
+                    TimeSpan time = new TimeSpan(hour, minute, 0);
+                    DateTime combined = appoint.Date.Add(time);
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.UserId, appoint.IdUser));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.PatientId, appoint.IdPatient));
-                    cmd.Parameters.Add(new SqlParameter(AppointmentDb.Comments, appoint.Comments));
+                    cmd.Parameters.Add(new SqlParameter(AppointmentDb.Comments, appoint.Comments != null ? appoint.Comments : ""));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.Status, appoint.Status));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.Date, appoint.Date));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.AppointmentId, appoint.IdAppointment));

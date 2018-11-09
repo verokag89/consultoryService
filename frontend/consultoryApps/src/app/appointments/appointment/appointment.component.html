@@ -49,7 +49,7 @@
                           <div class="form-row">
                             <input type="hidden" class="form-control" name="IdAppointment" #IdAppointment="ngModel" [(ngModel)]="appointmentService.selectedAppointment.IdAppointment">
             
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-5">
                               <div>Paciente:</div>
                               <!-- <select class="form-control" name="IdPatient" #IdPatient="ngModel" [(ngModel)]="appointmentService.selectedAppointment.IdPatient"
                                 (ngModelChange)='onOptionsSelected(appointmentService.selectedAppointment.IdPatient)' placeholder="Paciente"
@@ -69,24 +69,24 @@
                                 >
                               </ng-select>
                             </div>
-                            <div class="form-group col-md-1">
+                            <!-- <div class="form-group col-md-1">
                                 
                                 &nbsp;
                               <button ype="button" class="form-control btn btn-lg btn-block btn-primary btn-sm" >
                                 <i class="fas fa-search"></i>
                               </button>
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div> -->
+                            <div class="form-group col-md-4">
                               <div>Nombre:</div>
                               <input class="form-control" name="PatientName" #PatientName="ngModel" [(ngModel)]="PatientNameText"
-                                placeholder="Paciente" required />
+                                placeholder="Paciente" required disabled />
                               <div class="validation-error" *ngIf="PatientName.invalid && PatientName.touched">Este campo es requerido.</div>
                             </div>
             
                             <div class="form-group col-md-3">
                               <div>Tel:</div>
                               <input class="form-control" name="PatientPhone" #PatientPhone="ngModel" [(ngModel)]="PatientPhoneText"
-                                placeholder="Telefono" required />
+                                placeholder="Telefono" disabled />
                               <div class="validation-error" *ngIf="PatientPhone.invalid && PatientPhone.touched">Este campo es requerido.</div>
                             </div>
             
