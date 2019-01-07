@@ -41,21 +41,32 @@
                   <div class="">
 
                       <form class="patient-form" #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
-                          <div class="form-row">
+                        <div  class="form-row">
+                          <div class="form-group col-md-9">
+                          </div>
+                          <div class="form-group col-md-3">
+                              <div>Número de paciente:</div>
+                              <input class="form-control" name="PatientNumber" #PatientNumber="ngModel" [(ngModel)]="patientService.selectedPatient.PatientNumber"
+                              placeholder="Número de paciente" maxlength="10" required />
+                              <div class="validation-error" *ngIf="PatientNumber.invalid && PatientNumber.touched">Este campo es requerido.</div>
+                          </div>
+                        </div>
+                        
+                        <div class="form-row">
             
                             <input type="hidden" class="form-control" name="IdPatient" #IdPatient="ngModel" [(ngModel)]="patientService.selectedPatient.IdPatient">
                           
                             <div class="form-group col-md-6">
                               <div>Nombre(s):</div>
                               <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="patientService.selectedPatient.FirstName"
-                                placeholder="Nombre" required />
+                                placeholder="Nombre" maxlength="200" required />
                               <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">Este campo es requerido.</div>
                             </div>
             
                             <div class="form-group col-md-6">
                               <div>Apellido:</div>
                               <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="patientService.selectedPatient.LastName" placeholder="Apellido"
-                                required />
+                              maxlength="200" required />
                               <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">Este campo es requerido.</div>
                             </div>
             
@@ -67,25 +78,23 @@
                               <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1">@</span>
                                 </div>
-                              <input class="form-control" name="Email" #Email="ngModel" [(ngModel)]="patientService.selectedPatient.Email" placeholder="usuario@dominio.com"
+                              <input maxlength="200" class="form-control" name="Email" #Email="ngModel" [(ngModel)]="patientService.selectedPatient.Email" placeholder="usuario@dominio.com"
                               />
                             </div>
                           </div>
                           <div class="form-row">
                             <div class="form-group col-md-6">
                               <div>Fecha Nacimiento:</div>
-               
-                              <input class="form-control" name="BirthDate" type="date" #BirthDate="ngModel" [(ngModel)]="patientService.selectedPatient.BirthDate">
-                 
+                              <input class="form-control" name="BirthDate" type="date" #BirthDate="ngModel" [(ngModel)]="patientService.selectedPatient.BirthDate"> 
                             </div>
                             <div class="form-group col-md-3">
                               <div>Teléfono:</div>
-                              <input class="form-control" name="Phone" #Phone="ngModel" [(ngModel)]="patientService.selectedPatient.Phone">
+                              <input maxlength="50" class="form-control" name="Phone" #Phone="ngModel" [(ngModel)]="patientService.selectedPatient.Phone" pattern="telPattern">
                               <div class="validation-error" *ngIf="Phone.invalid && Phone.touched">Este campo es requerido.</div>
                             </div>
                             <div class="form-group col-md-3">
                               <div>Teléfono2 (Opcional):</div>
-                               <input #Phone2 class="form-control" name="Phone2"  #Phone2="ngModel" [(ngModel)]="patientService.selectedPatient.Phone2">
+                               <input maxlength="50" #Phone2 class="form-control" name="Phone2"  #Phone2="ngModel" [(ngModel)]="patientService.selectedPatient.Phone2">
                            </div>
                           </div>
                           <div class="form-row">
@@ -99,7 +108,6 @@
                             <div class="class form-group col-md-6">
                               <button type="submit" class="btn btn-lg btn-block btn-info " [disabled]="!patientForm.valid">
                                 <i class="fas fa-floppy-o"></i> &nbsp; Guardar</button>
-                        
                             </div>
                             <div class="class form-group col-md-6">
                               <button type="button" class="btn btn-lg btn-block btn-danger" (click)=resetForm(patientForm)>

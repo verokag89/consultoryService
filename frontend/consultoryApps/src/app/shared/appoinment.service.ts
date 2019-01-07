@@ -67,7 +67,7 @@ export class AppoinmentService {
         .then(
           res => { // Success
             this.selectedAppointment = res.json() as Appointment;
-    
+            this.selectedAppointment.DateAppointment = this.format.transform(this.selectedAppointment.DateAppointment);
             resolve();
           },
           msg => { // Error

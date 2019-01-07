@@ -31,6 +31,7 @@ namespace WebApplication1.Constant
         public static string Phone = "@pPhone";
         public static string Phone2 = "@pPhone2";
         public static string Email = "@pEmail";
+        public static string PatientNumber = "@pPatientNumber";
     }
 
     public static class AppointmentDb {

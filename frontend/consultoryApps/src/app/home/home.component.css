@@ -366,6 +366,10 @@
   background: rgba(222, 68, 55, 0.1);
 }
 
+.u-icon-blue--air[_ngcontent-c1] {
+  color: #0c08ff;
+  background:  #0c08ff;
+}
 .u-icon-primary--air {
   color: #377dff;
   background: rgba(55, 125, 255, 0.1);

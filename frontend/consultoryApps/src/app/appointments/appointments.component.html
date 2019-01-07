@@ -23,7 +23,7 @@
     <tr *ngFor="let appointment of appointmentService.AppointmentList | paginate: {itemsPerPage: 10, currentPage: p} ">
 
       <td>{{appointment.IdAppointment}}</td>
-      <td>{{appointment.Date  | date:'medium' }}</td>
+      <td>{{appointment.DateAppointment  | date:'medium' }}</td>
       <td>{{appointment.PatientName}}</td>
       <td>{{appointment.PatientPhone}}</td>
       <td>{{appointment.UserName}}</td>

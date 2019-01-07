@@ -38,7 +38,12 @@ export class AppointmentComponent implements OnInit {
 
     if (this.AppointId) {
       this.TitlePage = "Editar";
-
+      this.appointmentService.getAppointmentById(this.AppointId).then(data => {
+        this.onChangePatient(data);
+        var populateSelected =this.appointmentService.selectedAppointment;
+        //  this.onSavePatientChanged(this.appointmentService.selectedAppointment.Status);
+      });
+      var populateSelected2 =this.appointmentService.selectedAppointment;
     }else{
       this.TitlePage = "Agregar";
     }
@@ -64,7 +69,8 @@ export class AppointmentComponent implements OnInit {
           PatientPhone: '',
           Comments: '',
           IdPatient: null,
-          DateTime: null
+          DateAppointment: null,
+          Time: ''
         }
       }else{
         this.appointmentService.selectedAppointment = {
@@ -76,20 +82,26 @@ export class AppointmentComponent implements OnInit {
           PatientPhone: '',
           Comments: '',
           IdPatient: null,
-          DateTime: null
+          DateAppointment: null,
+          Time: ''
         }
       }
    
   }
 
   onChangePatient($event) {
-    this.appointmentService.selectedAppointment.PatientName =$event.FirstName +" " + $event.LastName;
-    this.appointmentService.selectedAppointment.IdPatient = $event.IdPatient;
-    this.appointmentService.selectedAppointment.PatientPhone =$event.Phone;
+
+    if($event != undefined){
+      this.appointmentService.selectedAppointment.PatientName =$event.FirstName +" " + $event.LastName;
+      this.appointmentService.selectedAppointment.IdPatient = $event.IdPatient;
+      this.appointmentService.selectedAppointment.PatientPhone =$event.Phone;
+
+    }
+
 
     this.PatientNameText = this.appointmentService.selectedAppointment.PatientName ;
     this.PatientPhoneText= this.appointmentService.selectedAppointment.PatientPhone;
-    console.log($event);
+
 }
   
 

@@ -16,5 +16,6 @@ namespace WebApplication1.Models
         public string Phone2 { get; set; }
         public bool Active { get; set; }
         public string Email { get; set; }
+        public int PatientNumber { get; set; }
     }
 }

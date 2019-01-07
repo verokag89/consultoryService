@@ -29,14 +29,14 @@ export class PatientListComponent implements OnInit {
 
   public onEdit(element: any): void {
     this.routes.navigate(['editar-paciente', element.IdPatient]);
-}
+  }
 
-public onDelete(element: any): void {
-    this.patientService.deletePatient( element).then( data =>{
-      this.toasterService.success("El paciente ha sido eliminado", "Registro Paciente");
-      this.patientService.getPatients();
-    });
- 
-}
+  public onDelete(element: any): void {
+      this.patientService.deletePatient( element).then( data =>{
+        this.toasterService.success("El paciente ha sido eliminado", "Registro Paciente");
+        this.patientService.getPatients();
+      });
+  
+  }
 
 }

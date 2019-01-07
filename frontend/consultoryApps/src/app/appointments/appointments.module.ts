@@ -32,7 +32,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgSelectModule,
     RouterModule.forChild([
       { path: 'lista-citas', component: AppointmentsListComponent },
-      { path: 'agregar-cita', component: AppointmentComponent }
+      { path: 'agregar-cita', component: AppointmentComponent },
+      { path: 'editar-cita/:id', component: AppointmentComponent}
     ],
 
     ),

@@ -11,6 +11,7 @@ export class Patient {
     Phone2: string;
     Active: boolean;
     Image?: string;
+    PatientNumber : number;
 }
 
 

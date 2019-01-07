@@ -3,9 +3,10 @@ export class Appointment {
     IdPatient: number;
     IdUser: number
     Comments: string;
-    DateTime? :Date;
+    DateAppointment :Date;
     Status: string;
     PatientName : string;
     PatientPhone : string;
     UserName : string;
+    Time : string;
 }

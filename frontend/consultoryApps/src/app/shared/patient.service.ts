@@ -73,7 +73,7 @@ export class PatientService {
       return data.json() as Patient[];
     }).toPromise().then(x => {
 
-      x.forEach(data=>data.NameSearch= data.IdPatient + " - " + data.FirstName +" " + data.LastName );
+      x.forEach(data=>data.NameSearch= data.PatientNumber + " - " + data.FirstName +" " + data.LastName );
       this.PatientActiveList = x.filter(data=> data.Active= true);
     })
 

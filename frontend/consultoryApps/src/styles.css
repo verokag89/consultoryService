@@ -10,7 +10,9 @@ form.user-form, form.consultory-form, form.patient-form, form.appointment-form {
 
 div.validation-error{
     color: red;
-    text-align: center;
+    text-align: left;
+    font-size: 8pt;
+    
 }
 
 button:hover, a bnt:hover{

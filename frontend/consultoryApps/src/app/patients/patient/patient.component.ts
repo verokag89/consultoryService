@@ -15,6 +15,7 @@ export class PatientComponent implements OnInit {
 
   PatientId: number;
   TitlePage: string;
+  telPattern: RegExp = /\(?([0-9]{3})\)?([ -]?)([0-9]{3})\2([0-9]{4})/;
 
   constructor(
     private patientService: PatientService,
@@ -58,7 +59,8 @@ export class PatientComponent implements OnInit {
         Phone: '',
         Phone2: '',
         Active: false,
-        Email: ''
+        Email: '',
+        PatientNumber : null
       }
     } else {
 
@@ -71,7 +73,8 @@ export class PatientComponent implements OnInit {
         Phone: '',
         Phone2: '',
         Active: false,
-        Email: ''
+        Email: '',
+        PatientNumber : null
       }
 
     }

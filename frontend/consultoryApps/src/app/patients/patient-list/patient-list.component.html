@@ -24,7 +24,7 @@
     <tbody>
       <tr *ngFor="let patient of patientService.PatientList | filter: searchText | paginate: {itemsPerPage: 10, currentPage: p} ">
 
-        <td>{{patient.IdPatient}}</td>
+        <td>{{patient.PatientNumber}}</td>
         <td>{{patient.FirstName}}</td>
         <td>{{patient.LastName}}</td>
         <td>{{patient.BirthDate | date:'mediumDate' }}</td>

@@ -37,7 +37,7 @@ namespace WebApplication1.Repository
                             IdAppointment = Convert.ToInt32(rdr["IdAppointment"].ToString() != "" ? rdr["IdAppointment"] : 0),
                             IdUser = Convert.ToInt32(rdr["IdUser"].ToString() != "" ? rdr["IdUser"] : 0),
                             IdPatient = Convert.ToInt32(rdr["IdPatient"].ToString() != "" ? rdr["IdPatient"] : 0),
-                            Date = Convert.ToDateTime(rdr["Date"] != null ?  rdr["Date"]: DateTime.Today.Date)
+                            DateAppointment = Convert.ToDateTime(rdr["Date"] != null ?  rdr["Date"]: DateTime.Today.Date)
                         };
                         appointment.Add(patient);
                     }
@@ -86,7 +86,8 @@ namespace WebApplication1.Repository
                             IdAppointment = Convert.ToInt32(rdr["IdAppointment"].ToString() != "" ? rdr["IdAppointment"] : 0),
                             IdUser = Convert.ToInt32(rdr["IdUser"].ToString() != "" ? rdr["IdUser"] : 0),
                             IdPatient = Convert.ToInt32(rdr["IdPatient"].ToString() != "" ? rdr["IdPatient"] : 0),
-                            Date = Convert.ToDateTime(rdr["Date"] != null ? rdr["Date"] : DateTime.Today.Date)
+                            DateAppointment = Convert.ToDateTime(rdr["Date"] != null ? rdr["Date"] : DateTime.Today.Date),
+                            Time = rdr["Time"].ToString() != "" ? rdr["Time"].ToString() : DateTime.Today.Date.ToShortTimeString()
                         };
                         appointment.Add(patient);
                     }
@@ -122,7 +123,7 @@ namespace WebApplication1.Repository
                     var hour= int.Parse(appoint.Time.Split(':')[0]);
                     var minute = int.Parse(appoint.Time.Split(':')[1]);
                     TimeSpan time = new TimeSpan(hour,minute,0);
-                    DateTime combined = appoint.Date.Add(time);
+                    DateTime combined = appoint.DateAppointment.Add(time);
 
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -208,7 +209,7 @@ namespace WebApplication1.Repository
                     var hour = int.Parse(appoint.Time.Split(':')[0]);
                     var minute = int.Parse(appoint.Time.Split(':')[1]);
                     TimeSpan time = new TimeSpan(hour, minute, 0);
-                    DateTime combined = appoint.Date.Add(time);
+                    DateTime combined = appoint.DateAppointment.Add(time);
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -216,7 +217,7 @@ namespace WebApplication1.Repository
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.PatientId, appoint.IdPatient));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.Comments, appoint.Comments != null ? appoint.Comments : ""));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.Status, appoint.Status));
-                    cmd.Parameters.Add(new SqlParameter(AppointmentDb.Date, appoint.Date));
+                    cmd.Parameters.Add(new SqlParameter(AppointmentDb.Date, combined));
                     cmd.Parameters.Add(new SqlParameter(AppointmentDb.AppointmentId, appoint.IdAppointment));
 
                     connection.Open();
@@ -270,7 +271,8 @@ namespace WebApplication1.Repository
                             IdAppointment = Convert.ToInt32(rdr["IdAppointment"].ToString() != "" ? rdr["IdAppointment"] : 0),
                             IdUser = Convert.ToInt32(rdr["IdUser"].ToString() != "" ? rdr["IdUser"] : 0),
                             IdPatient = Convert.ToInt32(rdr["IdPatient"].ToString() != "" ? rdr["IdPatient"] : 0),
-                            Date = Convert.ToDateTime(rdr["Date"] != null ? rdr["Date"] : DateTime.Today.Date)
+                            DateAppointment = Convert.ToDateTime(rdr["Date"] != null ? rdr["Date"] : DateTime.Today.Date ),
+                            Time = rdr["Time"] != null ? rdr["Time"].ToString() : DateTime.Today.Date.ToShortTimeString()
                         };
                     }
 

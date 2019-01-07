@@ -37,7 +37,8 @@ namespace WebApplication1.Repository
                             Phone2 =(rdr["Phone2"]).ToString(),
                             BirthDate = Convert.ToDateTime(rdr["BirthDate"] != null ? rdr["BirthDate"] : DateTime.Today.Date ),
                             Date = Convert.ToDateTime(rdr["Date"] != null ?  rdr["Date"]: DateTime.Today.Date),
-                            Active = Convert.ToBoolean(rdr["Active"].ToString() != "" ? rdr["Active"] : false)
+                            Active = Convert.ToBoolean(rdr["Active"].ToString() != "" ? rdr["Active"] : false),
+                            PatientNumber = Convert.ToInt32(rdr["PatientNumber"].ToString() != "" ? rdr["PatientNumber"] : 0)
                         };
                         patients.Add(patient);
                     }
@@ -80,6 +81,8 @@ namespace WebApplication1.Repository
                     cmd.Parameters.Add(new SqlParameter(PatientDb.Phone, patient.Phone));
                     cmd.Parameters.Add(new SqlParameter(PatientDb.Phone2, patient.Phone2));
                     cmd.Parameters.Add(new SqlParameter(PatientDb.Email, patient.Email));
+                    cmd.Parameters.Add(new SqlParameter(PatientDb.PatientNumber, patient.PatientNumber));
+           
 
 
                     connection.Open();
@@ -166,7 +169,7 @@ namespace WebApplication1.Repository
                     cmd.Parameters.Add(new SqlParameter(PatientDb.Phone2, patient.Phone2));
                     cmd.Parameters.Add(new SqlParameter(PatientDb.PatientId, patient.IdPatient));
                     cmd.Parameters.Add(new SqlParameter(PatientDb.Email, patient.Email));
-
+                    cmd.Parameters.Add(new SqlParameter(PatientDb.PatientNumber, patient.PatientNumber));
                     connection.Open();
 
                     int k = cmd.ExecuteNonQuery();
@@ -216,9 +219,11 @@ namespace WebApplication1.Repository
                             IdPatient = Convert.ToInt32(rdr["IdPatient"].ToString() != "" ? rdr["IdPatient"] : 0),
                             Phone = rdr["Phone"].ToString(),
                             Phone2 = (rdr["Phone2"]).ToString(),
-                            BirthDate = Convert.ToDateTime(rdr["BirthDate"] != null ? DateTime.Today.Date : rdr["BirthDate"]),
-                            Date = Convert.ToDateTime(rdr["Date"] != null ? DateTime.Today.Date : rdr["Date"]),
-                            Active = Convert.ToBoolean(rdr["Active"].ToString() != "" ? rdr["Active"] : false)
+                            BirthDate = Convert.ToDateTime(rdr["BirthDate"] != null ? rdr["BirthDate"] : DateTime.Today.Date),
+                            Date = Convert.ToDateTime(rdr["Date"] != null ?  rdr["Date"] : DateTime.Today.Date),
+                            Active = Convert.ToBoolean(rdr["Active"].ToString() != "" ? rdr["Active"] : false),
+                            PatientNumber = Convert.ToInt32(rdr["PatientNumber"].ToString() != "" ? rdr["PatientNumber"] : 0),
+
                         };
                     }
 
