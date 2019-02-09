@@ -89,12 +89,12 @@
                             </div>
                             <div class="form-group col-md-3">
                               <div>Teléfono:</div>
-                              <input maxlength="50" class="form-control" name="Phone" #Phone="ngModel" [(ngModel)]="patientService.selectedPatient.Phone" pattern="telPattern">
+                              <input maxlength="12" class="form-control" name="Phone" #Phone="ngModel" [(ngModel)]="patientService.selectedPatient.Phone" required>
                               <div class="validation-error" *ngIf="Phone.invalid && Phone.touched">Este campo es requerido.</div>
                             </div>
                             <div class="form-group col-md-3">
                               <div>Teléfono2 (Opcional):</div>
-                               <input maxlength="50" #Phone2 class="form-control" name="Phone2"  #Phone2="ngModel" [(ngModel)]="patientService.selectedPatient.Phone2">
+                               <input maxlength="12" #Phone2 class="form-control" name="Phone2"  #Phone2="ngModel" [(ngModel)]="patientService.selectedPatient.Phone2">
                            </div>
                           </div>
                           <div class="form-row">

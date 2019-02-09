@@ -10,19 +10,19 @@
   }
   
   .active-cyan-2 input[type=text]:focus:not([readonly]) {
-    border-bottom: 1px solid #4dd0e1;
-    box-shadow: 0 1px 0 0 #4dd0e1;
+    border-bottom: 1px solid rgb(4, 30, 51);
+    box-shadow: 0 1px 0 0 rgb(4, 30, 51);
   }
   
   .active-cyan input[type=text]{
-    border-bottom: 1px solid #4dd0e1 !important;
-    box-shadow: 0 1px 0 0 #4dd0e1 !important;
+    border-bottom: 1px solid rgb(4, 30, 51) !important;
+    box-shadow: 0 1px 0 0 rgb(4, 30, 51) !important;
 
   }
 
   .active-cyan input[type=text] {
-    border-bottom: 1px solid #4dd0e1 !important;
-    box-shadow: 0 1px 0 0 #4dd0e1 !important;
+    border-bottom: 1px solid rgb(4, 30, 51) !important;
+    box-shadow: 0 1px 0 0 rgb(4, 30, 51) !important;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -30,6 +30,6 @@
  
   .active-cyan .fa,
   .active-cyan-2 .fa {
-    color: #4dd0e1;
+    color: rgb(4, 30, 51);
   }
   

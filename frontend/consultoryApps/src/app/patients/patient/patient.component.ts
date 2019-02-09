@@ -15,7 +15,7 @@ export class PatientComponent implements OnInit {
 
   PatientId: number;
   TitlePage: string;
-  telPattern: RegExp = /\(?([0-9]{3})\)?([ -]?)([0-9]{3})\2([0-9]{4})/;
+  //telPattern: RegExp = /\(?([0-9]{10})\)/;
 
   constructor(
     private patientService: PatientService,
