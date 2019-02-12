@@ -1,8 +1,8 @@
 export class Dashboard {
-    TotalConsultory : number;
-    TotalPatients : number;
-    TotalUsers : number;
-    TotalAppointments : number;
+    public TotalConsultory : number;
+    public TotalPatients : number;
+    public TotalUsers : number;
+    public TotalAppointments : number;
     
 }
 

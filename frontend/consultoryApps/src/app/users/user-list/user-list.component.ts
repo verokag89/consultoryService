@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
 
-  constructor(private userService: UserService,private toasterService: ToastrService, private routes: Router) { 
+  public p:number;
+  constructor(public userService: UserService,private toasterService: ToastrService, private routes: Router) { 
 
     this.userService.getUsers();
   }

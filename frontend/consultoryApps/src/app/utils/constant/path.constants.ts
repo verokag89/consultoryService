@@ -6,7 +6,7 @@ export class PathConstants {
 
     //url that contain our apis
     //static basePath = 'http://localhost:54289'
-    static basePath= 'http://localhost:63314'
+    static basePath= 'http://localhost:999'
 
     /* Begin -> Home*/
     static GET_TOTALS = "/api/Dashboard"; //"/api/Users";

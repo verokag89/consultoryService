@@ -18,7 +18,7 @@ export class PatientComponent implements OnInit {
   //telPattern: RegExp = /\(?([0-9]{10})\)/;
 
   constructor(
-    private patientService: PatientService,
+    public patientService: PatientService,
     private toasterService: ToastrService,
     private aRoute: ActivatedRoute,
     private router: Router) {

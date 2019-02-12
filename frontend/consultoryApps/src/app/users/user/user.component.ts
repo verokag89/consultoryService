@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
   selectedPosition: PositionUser;
   PositionRol : string;
   UserId : number; 
-  constructor(private userService: UserService
+  constructor(public userService: UserService
     , private toasterService: ToastrService
     , private aRoute: ActivatedRoute
     , private router :Router

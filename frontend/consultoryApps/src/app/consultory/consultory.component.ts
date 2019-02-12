@@ -13,11 +13,12 @@ import { NgForm } from '@angular/forms';
 
 export class ConsultoryComponent implements OnInit {
 
- 
+  public p: number;
   titlePage :string =   this.consultoryService.titlePage ;
   ConsultoryList: Consultory[];
   selectedConsultory : Consultory;
-  constructor(private consultoryService: ConsultoryService
+  
+  constructor(public consultoryService: ConsultoryService
     , private toasterService: ToastrService
   ) {
 

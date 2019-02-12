@@ -11,10 +11,11 @@ import { ToastrService } from 'ngx-toastr';
   providers: [AppoinmentService]
 })
 export class AppointmentsListComponent implements OnInit {
-
-
+  public today: number = Date.now();
+  public searchText: string;
+  public p: number;
   constructor(
-     private appointmentService: AppoinmentService,
+     public appointmentService: AppoinmentService,
      private routes: Router,
      private toasterService : ToastrService) { }
 

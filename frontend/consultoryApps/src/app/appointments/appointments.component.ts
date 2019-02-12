@@ -8,7 +8,10 @@ import { AppoinmentService } from '../shared/appoinment.service';
   providers: [AppoinmentService]
 })
 export class AppointmentsComponent implements OnInit {
-  constructor(private appointmentService: AppoinmentService) { }
+  public today: number = Date.now();
+  public searchText: string;
+  public p: number;
+  constructor(public appointmentService: AppoinmentService) { }
   ngOnInit() {
     this.getAllAppointment();
   }

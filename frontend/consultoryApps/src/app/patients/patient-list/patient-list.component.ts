@@ -13,8 +13,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PatientListComponent implements OnInit {
   public today: number = Date.now();
-
-  constructor(private patientService: PatientService, private routes: Router, private toasterService:ToastrService) { }
+  public searchText: string;
+  public p: number;
+  constructor(public patientService: PatientService, private routes: Router, private toasterService:ToastrService) { }
 
 
   ngOnInit() {

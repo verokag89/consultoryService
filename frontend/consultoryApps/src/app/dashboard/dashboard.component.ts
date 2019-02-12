@@ -10,9 +10,12 @@ import { Dashboard } from '../types/dashboard.model';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private dashboardService : DashboardService) { }
 
-  totals= Dashboard;
+  public totals: Dashboard;
+
+  constructor(public dashboardService : DashboardService) { }
+
+  //totals= Dashboard;
   
   ngOnInit() {
 

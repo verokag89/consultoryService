@@ -21,9 +21,9 @@ export class AppointmentComponent implements OnInit {
   PatientPhoneText : string;
  
   constructor(
-    private userService: UserService, 
-    private patientService: PatientService, 
-    private appointmentService: AppoinmentService,
+    public userService: UserService, 
+    public patientService: PatientService, 
+    public appointmentService: AppoinmentService,
     private aRoute: ActivatedRoute,
     private router: Router,
     private toasterService: ToastrService ) {
