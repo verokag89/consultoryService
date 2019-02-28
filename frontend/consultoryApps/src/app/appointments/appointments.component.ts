@@ -11,6 +11,7 @@ export class AppointmentsComponent implements OnInit {
   public today: number = Date.now();
   public searchText: string;
   public p: number;
+  
   constructor(public appointmentService: AppoinmentService) { }
   ngOnInit() {
     this.getAllAppointment();

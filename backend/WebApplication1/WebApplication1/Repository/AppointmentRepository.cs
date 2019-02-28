@@ -86,8 +86,8 @@ namespace WebApplication1.Repository
                             IdAppointment = Convert.ToInt32(rdr["IdAppointment"].ToString() != "" ? rdr["IdAppointment"] : 0),
                             IdUser = Convert.ToInt32(rdr["IdUser"].ToString() != "" ? rdr["IdUser"] : 0),
                             IdPatient = Convert.ToInt32(rdr["IdPatient"].ToString() != "" ? rdr["IdPatient"] : 0),
-                            DateAppointment = Convert.ToDateTime(rdr["Date"] != null ? rdr["Date"] : DateTime.Today.Date),
-                            Time = rdr["Time"].ToString() != "" ? rdr["Time"].ToString() : DateTime.Today.Date.ToShortTimeString()
+                            DateAppointment = Convert.ToDateTime(rdr["Date"] != null ? rdr["Date"] : DateTime.Today.Date)
+                         //   Time = rdr["Time"].ToString() != "" ? rdr["Time"].ToString() : DateTime.Today.Date.ToShortTimeString()
                         };
                         appointment.Add(patient);
                     }

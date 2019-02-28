@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: '', redirectTo :'inicio', pathMatch: 'full'}, 
   { path: 'consultorio', component : ConsultoryComponent },
+  { path: 'usuarios', component : UsersComponent },
   { path: 'inicio', component : DashboardComponent },
   { path: 'citas', component: AppointmentsComponent},
   { path: 'home', component: HomeComponent}
@@ -25,4 +26,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [ConsultoryComponent ,DashboardComponent , AppointmentsComponent, HomeComponent  ]
+export const routingComponents = [ConsultoryComponent, UsersComponent,  DashboardComponent , AppointmentsComponent, HomeComponent  ]

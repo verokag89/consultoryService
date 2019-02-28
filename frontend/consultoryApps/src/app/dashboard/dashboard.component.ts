@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
 
   public totals: Dashboard;
-
+  public TotalPatients: number = 0;
   constructor(public dashboardService : DashboardService) { }
 
   //totals= Dashboard;

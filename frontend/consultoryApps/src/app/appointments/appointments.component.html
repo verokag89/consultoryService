@@ -30,7 +30,7 @@
     <th scope="col"></th>
   </thead>
   <tbody>
-    <tr *ngFor="let appointment of appointmentService.AppointmentList | paginate: {itemsPerPage: 10, currentPage: p} ">
+    <tr *ngFor="let appointment of appointmentService.AppointmentListCurrent | filter: searchText | paginate: {itemsPerPage: 10, currentPage: p} ">
 
       <td>{{appointment.IdAppointment}}</td>
       <td>{{appointment.DateAppointment  | date:'medium' }}</td>
@@ -38,23 +38,17 @@
       <td>{{appointment.PatientPhone}}</td>
       <td>{{appointment.UserName}}</td>
       <td>
-                     
-
+                    
       </td>
       <td>
-        <!-- <a routerLink="/editar-cita" class="btn" (click)="onEdit(appointment)">
-        <i class="fa fa-pencil-square-o">Editar</i>
-        </a>
-        <a  (click)="onDelete(appointment)" class="btn">
-            <i class="fa fa-pencil-square-o">Eliminar</i>
-        </a> -->
-        <button type="button" class="btn btn-secondary btn-sm" routerLink="/editar-cita" ><i class="fa fa-pencil-square-o"></i></button>
-   
+      <!--  <button type="button" class="btn btn-secondary btn-sm" routerLink="/editar-cita" ><i class="fa fa-pencil-square-o"></i></button>
+      -->
       </td>
       <td>
+      <!--
           <button type="button" class="btn btn-danger btn-sm"  (click)="onDelete(appointment)"><i class="far fa-trash-alt"></i></button>
-   
-      </td>
+      -->
+        </td>
     </tr>
 
   </tbody>

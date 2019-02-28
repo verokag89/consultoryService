@@ -27,6 +27,7 @@ import { PatientsModule } from './patients/patients.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppointmentsModule } from './appointments/appointments.module';
 import { HomeComponent } from './home/home.component';
+import {APP_BASE_HREF} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,6 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpModule,
     ToastrModule.forRoot(),
-    UsersModule,
     BrowserAnimationsModule,
     SharedModule,
     PatientsModule,
@@ -53,7 +53,7 @@ import { HomeComponent } from './home/home.component';
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/consultoryPortal'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

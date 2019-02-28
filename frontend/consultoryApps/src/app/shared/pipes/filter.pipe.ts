@@ -15,9 +15,18 @@ export class FilterPipe implements PipeTransform {
     searchText = searchText.toLocaleLowerCase();
 
     return items.filter(it => {
-      return it.FirstName.toLocaleLowerCase().includes(searchText) ||
-                it.LastName.toLocaleLowerCase().includes(searchText) || 
-                it.Phone.toLocaleLowerCase().includes(searchText);
+
+      if(it.FirstName ||it.LastName ||  it.Phone ){
+        return it.FirstName.toLocaleLowerCase().includes(searchText) ||
+        it.LastName.toLocaleLowerCase().includes(searchText) || 
+        it.Phone.toLocaleLowerCase().includes(searchText);
+
+      }
+      if(it.PatientName || it.PatientPhone ){
+        return it.PatientName.toLocaleLowerCase().includes(searchText) ||
+        it.PatientPhone.toLocaleLowerCase().includes(searchText) 
+      }
+
     });
   }
 }

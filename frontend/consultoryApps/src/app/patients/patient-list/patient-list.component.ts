@@ -36,6 +36,14 @@ export class PatientListComponent implements OnInit {
       this.patientService.deletePatient( element).then( data =>{
         this.toasterService.success("El paciente ha sido eliminado", "Registro Paciente");
         this.patientService.getPatients();
+      }).catch(error=> {
+        console.log(error._body);
+        let errormsg = error._body;
+        if(errormsg.toString().match("409") != null){
+          this.toasterService.warning("El paciente cuenta con citas, Eliminar sus citas para poder eliminar a el Paciente", "Registro Paciente");
+        }
+       
+        this.toasterService.error("No se pudo eliminar el paciente", "Registro Paciente");
       });
   
   }

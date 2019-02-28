@@ -75,6 +75,7 @@ export class UserComponent implements OnInit {
         this.resetForm(form);
         this.toasterService.success("El usuario ha sido agregado", "Registro Usuario");
         this.router.navigateByUrl('/usuarios');
+        this.router.navigate(['usuarios']);
       })
   
     }else{
@@ -83,6 +84,7 @@ export class UserComponent implements OnInit {
         this.resetForm(form);
         this.toasterService.success("El usuario ha sido editado", "Registro Usuario");
         this.router.navigateByUrl('/usuarios');
+        this.router.navigate(['usuarios']);
       })
   
     }
